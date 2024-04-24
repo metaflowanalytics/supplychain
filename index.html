@@ -1,0 +1,140 @@
+<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaFlow</title>
+</head>
+<body>
+    <header>
+        <h1>AI Based Forecasting and Replenishment Planning</h1>
+        <h3>Supply Chain Optimization</h3>
+        <h3>Developed By: Manoj Pandey</h3>
+
+    </header>
+    <section>
+        <h2>Feature Details</h2>
+        <h3>Single / Multi-Node Supply Chain Replenishment Planning</h3>
+        <p>This capability covers both single-node and multi-node network configurations. For single-node networks, targeted strategies optimize inventory management and ensure timely replenishment, enhancing overall efficiency with minimal complexity. For more intricate multi-node networks, the approach involves sophisticated coordination and analytics to manage interdependencies effectively.</p>
+        <h3>Advanced Reinforcement Learning Algorithms to Optimize Replenishment Planning</h3>
+        <p>The deployment of advanced artificial intelligence models to optimize supply chain operations includes the use of the Deep Q-Networks (DQN) model for simpler supply chains. This model is renowned for its efficiency and straightforward application, proving effective in environments with predictable outcomes. It optimizes inventory levels through precise value function estimation and ensures process stability using techniques such as experience replay and fixed Q-targets.</p>
+        <p>For more complex, multi-node supply chain networks, the Proximal Policy Optimization (PPO) model is utilized. PPO effectively navigates the complexities of intricate systems, optimizing policies directly to adapt flexibly to dynamic conditions. Its incremental and safe policy adjustments provide the robustness needed to effectively manage the uncertainties of supply and demand.</p>
+        <h3>Integrated Forecasting</h3>
+        <p>The integrated advanced forecasting capabilities combine the best of both worlds: cutting-edge machine learning algorithms and proven classical statistical methods. This hybrid approach harnesses the predictive power of machine learning, including deep learning models that adapt and learn from vast data sets, alongside time-tested statistical algorithms that provide stability and reliability in forecast accuracy.</p>
+    </section>
+    <section>
+        <h2>Inputs</h2>
+        <p>Designed to handle both single-node and multi-node network inputs, this capability ensures precise inventory management across varying complexities.</p>
+        <p>For single-node environments, the inputs are outlined below</p>
+        <ul>
+            <li>Retailer Inventory Parameters: SKU, Unit Selling Price, Holding Cost per Day, Fixed Ordering Cost per Order, Variable Ordering Cost per Unit, Inventory Capacity, Max Order Quantity per Order, Min Order Quantity per Order, Initial Inventory, Lead Time Days, Stockout Penalty per unit, Overstock Penalty per Unit</li>
+            <li>Historical Sales: SKU, End of the Week Date, Sold Quantity</li>
+            <li>Sales Forecast (if available): SKU, End of the Week Date, Forecast Quantity</li>
+            <li>Order In-Transit (if available): SKU, Order Date, ETA Date, Order Quantity</li>
+        </ul>
+        <p>For multi-node environments, the inputs are outlined below</p>
+        <ul>
+            <li>Distributor Center Inventory Parameters: SKU, Holding Cost per Day, Fixed Ordering Cost per Order, Variable Ordering Cost per Unit, Inventory Capacity, Max Order Quantity per Order, Min Order Quantity per Order, Initial Inventory, Lead Time Days</li>
+            <li>Retailer Inventory Parameters: Retailer, SKU, Unit Selling Price, Holding Cost per Day, Fixed Ordering Cost per Order, Variable Ordering Cost per Unit, Inventory Capacity, Max Order Quantity per Order, Min Order Quantity per Order, Initial Inventory, Lead Time Days</li>
+            <li>Retailer Historical Sales: Retailer, SKU, End of the Week Date, Sold Quantity</li>
+            <li>Retailer Sales Forecast (if available): Retailer, SKU, End of the Week Date, Forecast Quantity</li>
+            <li>Retailer Order In-Transit (if available): Retailer, SKU, Order Date, ETA Date, Order Quantity</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Configuration</h2>
+        <p>The capability is equipped with a robust set of user-configurable options that empower businesses to tailor their inventory management and forecasting processes to meet specific needs.</p> 
+         <ul>
+            <li>Flexibility in Forecasts: Choose between user-generated and system-generated forecasts to leverage internal data insights or automated predictive models.</li>
+            <li>Customization of Forecast Length: Users can set the length of the forecast and planning period in weeks to match their operational timelines and business cycles.</li>
+            <li>Adjustable Week Start and End Days: Allows users to set the start and end days of their week, ensuring integration with existing workflows.</li>
+            <li>Order In-Transit: Includes an option to account for order in-transit information in replenishment calculations, improving the accuracy of inventory assessments.</li>
+            <li>Simulation Options: Users can specify the number of simulations to run, ranging from 100 to 100,000, for detailed risk assessment and scenario planning.</li>
+            <li>Maximum Runtime: Set the maximum runtime for these simulations from 1 to 25 hours, providing flexibility to balance computational depth with operational efficiency.</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Outputs</h2>
+        <p>The Reinforcement Learning (RL) algorithm provides detailed output metrics for both single-node and multi-node environments, which are critical for informed decision-making in supply chain management. This capability ensures that businesses can maintain optimal stock levels, meet consumer demand efficiently, and minimize costs related to overstock and understock scenarios.</p>
+        <p>Summary of Outputs:</p>
+        <ul>
+            <li>Inventory Start and End Positions: Shows the inventory position at the beginning and end of the period.</li>
+            <li>Demand and Sales Metrics: Includes total demand, units sold, unfulfilled demand, and demand fulfillment rate.</li>
+            <li>Inventory Management: Details orders arriving, in-transit inventory arriving, projected future inventory, future inventory shortfall, and excess inventory.</li>
+            <li>Actions and Adjustments: Records original and adjusted actions taken, along with reasons for adjustments.</li>
+            <li>Performance Metrics: Provides overstock amounts, capacity utilization rate, and an overall reward metric indicating the efficiency of the inventory management.</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Technical Architecture</h2>
+        <p>Frontend Application:</p>
+        <ul>
+            <li>React App:</li>
+            <p>Purpose: Manages the user interface, input file upload and validation, configuration settings and outputs.</p>
+        </ul>
+        <p>Backend Services:</p>
+        <ul>
+            <li>Node.js Server:</li>
+            <p>Purpose: Manages API interactions with MySQL database, ensuring data storage and retrieval operations for the application.</p>
+            <li>Flask API Server:</li>
+            <p>Purpose: Handles the execution of Python jobs that run reinforcement learning algorithms.</p>
+        </ul>
+    </section>
+    <section>
+        <h2>Suggested Timeline for Custom Implementation</h2>
+        <p>Single Node Implementation (example: a single retailer):</p>
+        <ul>
+            <li>Less than 100 SKUs: Approximately 6 months</li>
+            <li>More than 100 SKUs: Approximately 9 months</li>
+        </ul>
+        <p>Multi-Node Implementation (example: a distributor and two or more retailers):</p>
+        <ul>
+            <li>Less than 100 SKUs: Approximately 9 months</li>
+            <li>More than 100 SKUs: Approximately 12 months</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Solution Screenshots</h2>
+        <div class="gallery">
+            <img src="Image11.png" alt="Solution Screenshot 1" onclick="openModal(this)">
+            <img src="Image12.png" alt="Solution Screenshot 1" onclick="openModal(this)">
+            <img src="Image3.png" alt="Solution Screenshot 1" onclick="openModal(this)">
+            <img src="Image18.png" alt="Solution Screenshot 2" onclick="openModal(this)">
+            <img src="Image20.png" alt="Solution Screenshot 3" onclick="openModal(this)">
+            <img src="Image23.png" alt="Solution Screenshot 4" onclick="openModal(this)">
+            <img src="Image24.png" alt="Solution Screenshot 5" onclick="openModal(this)">
+        </div>
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+        </div>
+    </section>
+    <section>
+        <h2>About</h2>
+        <div style="display: flex; align-items: center;">
+            <img src="manoj.png" alt="Manoj Pandey" style="width: 100px; height: auto; margin-right: 20px;">
+            <p><b>Manoj Pandey</b> is a seasoned business and technology leader with over 25 years of experience across diverse industries in Analytics and AI domain. He specializes in developing AI-driven supply chain solutions, enhancing efficiency and productivity for top-tier firms. For more about Manoj, visit <a href="https://www.linkedin.com/in/manojdna">his LinkedIn profile</a>. Contact: pandeyidea@gmail.com</p>
+        </div>
+    </section>
+    <script>
+        // JavaScript for modal image gallery
+        function openModal(img) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            modal.style.display = "block";
+            modalImg.src = img.src;
+            captionText.innerHTML = img.alt;
+            
+            var span = document.getElementsByClassName("close")[0];
+            span.onclick = function() { 
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
