@@ -98,14 +98,17 @@
         </table>
         <p>MetaFlow cannot directly access the resources in the Customer Cloud account and interacts with them only through AWS APIs. Customer data stays entirely within the Customer Cloud account/VPC, both at rest and in transit.</p>
     
-        <p style="font-size:1.17em; margin-top: 1em;">Example Workflow:</p>
+        <p><strong>Example Workflow:</strong></p>
         <ul>
-            <li>Deployment: A new version of a supply chain analytics service is deployed via the Control Plane. The Control Plane manages the deployment by instructing the ECS cluster in the Data Plane to pull the new container image from AWS ECR.</li>
+            <li>Deployment: A new version of MetaFlow service is deployed via the Control Plane. The Control Plane manages the deployment by instructing the ECS cluster in the Data Plane to pull the new container image from AWS ECR.</li>
+            <li>Integration: Users can integrate MetaFlow Service with their existing Supply Chain applications using ETL pipelines, securely accessing the customer’s AWS S3 storage for seamless data transfer and processing.</li>
             <li>Data Processing: The deployed service in the Data Plane processes the customer supply chain data, running AI models or analytics scripts as required.</li>
             <li>Monitoring and Scaling: If the load on the processing service increases, the Control Plane detects this and automatically scales the ECS service to handle the additional load.</li>
             <li>Result Delivery: Processed results are stored in the customer AWS S3, and the Data Plane updates the customer dashboard with the new insights.</li>
+            
+
         </ul>
-        <p style="font-size:1.17em; margin-top: 1em;">Setup and Integration Process:</p>
+        <p><strong>Setup and Integration Process:</strong></p>
         <ul>
             <li>Role-Based Access Control: MetaFlow assumes specific roles in the customer AWS account for API actions, without accessing data directly.</li>
             <li>Provisioning of Resources: MetaFlow uses Terraform to set up required resources, including ECS clusters and load balancers, in the customer cloud.</li>
