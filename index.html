@@ -19,8 +19,8 @@
     <section>
         <h2>Product Features</h2>
         <ul>
-            <li><strong>Single / Multi-Node Supply Chain Replenishment Planning:</strong> Supports both single-node and multi-node networks, optimizing inventory management with minimal complexity for single-node and using advanced analytics for multi-node setups.</li>
-            <li><strong>Advanced Reinforcement Learning Algorithms:</strong> Utilizes AI models like Deep Q-Networks (DQN) for simpler supply chains and Proximal Policy Optimization (PPO) for complex multi-node environments to enhance inventory planning and demand management.</li>
+            <li><strong>Single-Node and Multi-Node Supply Chain Replenishment Planning:</strong> Supports both single-node and multi-node networks, optimizing inventory management with minimal complexity for single-node and using advanced analytics for multi-node setups.</li>
+            <li><strong>Advanced Reinforcement Learning Algorithms:</strong> Utilizes AI models like Deep Q-Networks for simpler supply chains and Proximal Policy Optimization for complex multi-node environments to enhance inventory planning and demand management.</li>
             <li><strong>Integrated Forecasting:</strong> Combines machine learning and classical statistical methods for accurate, reliable demand forecasting, adapting to large datasets with deep learning models.</li>
         </ul>
     </section>
@@ -28,20 +28,20 @@
     <section>
         <h2>Inputs</h2>
         <p>Designed to handle both single-node and multi-node network inputs, this capability ensures precise inventory management across varying complexities.</p>
-        <p>For single-node environments, the inputs are outlined below</p>
+        <p>For <strong>single-node environments </strong>, the inputs are outlined below</p>
         <ul>
             <li>Retailer Inventory Parameters: SKU, Unit Selling Price, Holding Cost per Day, Fixed Ordering Cost per Order, Variable Ordering Cost per Unit, Inventory Capacity, Max Order Quantity per Order, Min Order Quantity per Order, Initial Inventory, Lead Time Days, Stockout Penalty per unit, Overstock Penalty per Unit</li>
             <li>Historical Sales: SKU, End of the Week Date, Sold Quantity</li>
-            <li>Sales Forecast (if available): SKU, End of the Week Date, Forecast Quantity</li>
-            <li>Order In-Transit (if available): SKU, Order Date, ETA Date, Order Quantity</li>
+            <li>Sales Forecast: SKU, End of the Week Date, Forecast Quantity</li>
+            <li>Order In-Transit: SKU, Order Date, ETA Date, Order Quantity</li>
         </ul>
-        <p>For multi-node environments, the inputs are outlined below</p>
+        <p>For <strong>multi-node environments </strong>, the inputs are outlined below</p>
         <ul>
             <li>Distributor Center Inventory Parameters: SKU, Holding Cost per Day, Fixed Ordering Cost per Order, Variable Ordering Cost per Unit, Inventory Capacity, Max Order Quantity per Order, Min Order Quantity per Order, Initial Inventory, Lead Time Days</li>
             <li>Retailer Inventory Parameters: Retailer, SKU, Unit Selling Price, Holding Cost per Day, Fixed Ordering Cost per Order, Variable Ordering Cost per Unit, Inventory Capacity, Max Order Quantity per Order, Min Order Quantity per Order, Initial Inventory, Lead Time Days</li>
             <li>Retailer Historical Sales: Retailer, SKU, End of the Week Date, Sold Quantity</li>
-            <li>Retailer Sales Forecast (if available): Retailer, SKU, End of the Week Date, Forecast Quantity</li>
-            <li>Retailer Order In-Transit (if available): Retailer, SKU, Order Date, ETA Date, Order Quantity</li>
+            <li>Retailer Sales Forecast: Retailer, SKU, End of the Week Date, Forecast Quantity</li>
+            <li>Retailer Order In-Transit: Retailer, SKU, Order Date, ETA Date, Order Quantity</li>
         </ul>
     </section>
     <section>
