@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header style="margin: 0; padding: 20px; display: flex; align-items: center; background-color: #ffffff;">
+    <header class="main-header" style="margin: 0; padding: 20px; display: flex; align-items: center; background-color: #ffffff; flex-wrap: wrap;">
         <img src="logo1.png" alt="MetaFlow Analytics Logo" style="height: 80px; margin-right: 20px;"/>
 
         <div style="margin-right: 30px;">
@@ -76,32 +76,34 @@
     <section>
         <h2>Technical Architecture</h2>
         <p><strong>Hybrid Cloud Architecture:</strong> Split Control Plane (hosted by MetaFlow) and Data Plane (hosted by Customer, managed by MetaFlow).</p>
-        <table border="1" cellspacing="0" cellpadding="8">
-            <thead>
-                <tr>
-                    <th style="background-color:#f4f4f4; text-align:left;">Criteria</th>
-                    <th style="background-color:#f4f4f4; text-align:left;">Control Plane</th>
-                    <th style="background-color:#f4f4f4; text-align:left;">Data Plane</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>What it does</td>
-                    <td>Orchestration & API Management, Deployment Management, Resource Monitoring, Updates</td>
-                    <td>Manage Compute Resources, Run AI Models, Generate Insights, Stores Customer Data</td>
-                </tr>
-                <tr>
-                    <td>Where it is hosted</td>
-                    <td>MetaFlow Cloud Account</td>
-                    <td>Customer Cloud Account</td>
-                </tr>
-                <tr>
-                    <td>Who provisions and monitors</td>
-                    <td>MetaFlow</td>
-                    <td>MetaFlow</td>
-                </tr>
-            </tbody>
-        </table>
+        <div style="overflow-x:auto;">
+            <table border="1" cellspacing="0" cellpadding="8">
+                <thead>
+                    <tr>
+                        <th style="background-color:#f4f4f4; text-align:left;">Criteria</th>
+                        <th style="background-color:#f4f4f4; text-align:left;">Control Plane</th>
+                        <th style="background-color:#f4f4f4; text-align:left;">Data Plane</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>What it does</td>
+                        <td>Orchestration & API Management, Deployment Management, Resource Monitoring, Updates</td>
+                        <td>Manage Compute Resources, Run AI Models, Generate Insights, Stores Customer Data</td>
+                    </tr>
+                    <tr>
+                        <td>Where it is hosted</td>
+                        <td>MetaFlow Cloud Account</td>
+                        <td>Customer Cloud Account</td>
+                    </tr>
+                    <tr>
+                        <td>Who provisions and monitors</td>
+                        <td>MetaFlow</td>
+                        <td>MetaFlow</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <p>MetaFlow cannot directly access the resources in the Customer Cloud account and interacts with them only through AWS APIs. Customer data stays entirely within the Customer Cloud account/VPC, both at rest and in transit.</p>
     
         <p><strong>Example Workflow:</strong></p>
@@ -151,7 +153,7 @@
     </section>
     <section>
         <h2>About Us</h2>
-        <div style="display: flex; align-items: center;">
+        <div class="about-us" style="display: flex; align-items: center;">
             <img src="manoj.png" alt="Manoj Pandey" style="width: 123px; height: auto; margin-right: 20px;">
             <p><b>Manoj Pandey </b> brings over 25 years of experience across various industries, including manufacturing, retail, financial services, aerospace, cloud business, network hardware/software, and healthcare. He has worked extensively in Analytics and Machine Learning, focusing on developing AI-driven solutions for supply chain management to improve operational efficiency and productivity.(<a href="https://www.linkedin.com/in/manojdna/">linkedin profile</a>)</p>
         </div>
