@@ -109,9 +109,8 @@ a {
     }
 
     header img {
-        width: 100%; /* Scale logo for mobile screens */
-        max-width: 200px; /* Set a max width to prevent it from being too large */
-        height: auto;
+        max-width: 100%; /* Ensure the image scales correctly */
+        height: auto; /* Maintain aspect ratio */
     }
 
     .gallery img {
