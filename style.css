@@ -37,6 +37,16 @@ a {
     color: #1a237e;
 }
 
+header img {
+    width: auto; /* Allow width to adjust based on the height */
+    height: 80px; /* Set a default height for desktop */
+    max-width: 100%; /* Prevent it from exceeding container's width */
+    display: block; /* Ensure it behaves as a block-level element */
+    margin: 0 20px 0 0; /* Add margin to the right to space out from the text */
+}
+
+
+
 /* Styles for the image gallery */
 .gallery img {
     width: 90px; /* Adjusted size for mobile */
@@ -109,8 +119,8 @@ a {
     }
 
     header img {
-        max-width: 100%; /* Ensure the image scales correctly */
-        height: auto; /* Maintain aspect ratio */
+        height: 50px; /* Reduce the height to 50px for mobile */
+        width: auto; /* Maintain aspect ratio */
     }
 
     .gallery img {
