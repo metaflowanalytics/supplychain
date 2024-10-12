@@ -35,18 +35,18 @@
         <h2>Inputs</h2>
         <p><strong>Single-Node inputs:</strong></p>
         <ul>
-            <li>Retailer Inventory Parameters: SKU, Unit Selling Price, Holding Cost per Day, Fixed Ordering Cost per Order, Variable Ordering Cost per Unit, Inventory Capacity, Max Order Quantity per Order, Min Order Quantity per Order, Initial Inventory, Lead Time Days, Stockout Penalty per unit, Overstock Penalty per Unit</li>
-            <li>Historical Sales: SKU, End of the Week Date, Sold Quantity</li>
-            <li>Sales Forecast: SKU, End of the Week Date, Forecast Quantity</li>
-            <li>Order In-Transit: SKU, Order Date, ETA Date, Order Quantity</li>
+            <li>Retailer Inventory Parameters: SKU, Selling Price, Inventory Capacity, Min/Max Order Quantity, Current Inventory, Lead Time, Stockout Penalty</li>
+            <li>Historical Sales: SKU, Weekly Sales Quantity</li>
+            <li>Sales Forecast: SKU, Weekly Forecast Quantity</li>
+            <li>Order In-Transit: SKU, Order Date, Order Quantity</li>
         </ul>
         <p><strong>Multi-Node inputs:</strong></p>
         <ul>
-            <li>Distributor Center Inventory Parameters: SKU, Holding Cost per Day, Fixed Ordering Cost per Order, Variable Ordering Cost per Unit, Inventory Capacity, Max Order Quantity per Order, Min Order Quantity per Order, Initial Inventory, Lead Time Days</li>
-            <li>Retailer Inventory Parameters: Retailer, SKU, Unit Selling Price, Holding Cost per Day, Fixed Ordering Cost per Order, Variable Ordering Cost per Unit, Inventory Capacity, Max Order Quantity per Order, Min Order Quantity per Order, Initial Inventory, Lead Time Days</li>
-            <li>Retailer Historical Sales: Retailer, SKU, End of the Week Date, Sold Quantity</li>
-            <li>Retailer Sales Forecast: Retailer, SKU, End of the Week Date, Forecast Quantity</li>
-            <li>Retailer Order In-Transit: Retailer, SKU, Order Date, ETA Date, Order Quantity</li>
+            <li>Distributor Center Inventory Parameters: SKU, Inventory Capacity, Min/Max Order Quantity, Current Inventory, Lead Time</li>
+            <li>Retailer Inventory Parameters: Retailer, SKU, Selling Price, Inventory Capacity, Min/Max Order Quantity, Current Inventory, Lead Time, Stockout Penalty</li>
+            <li>Retailer Historical Sales: Retailer, SKU, Weekly Sales Quantity</li>
+            <li>Retailer Sales Forecast: Retailer, SKU, Weekly Forecast Quantity</li>
+            <li>Retailer Order In-Transit: Retailer, SKU, Order Date, Order Quantity</li>
         </ul>
     </section>
     <section>
@@ -58,7 +58,7 @@
             <li>Adjustable Week Start and End Days: Allows users to set the start and end days of their week.</li>
             <li>Order In-Transit: Includes an option to account for order in-transit information in replenishment calculations.</li>
             <li>Simulation Options: Users can specify the number of simulations to run, ranging from 100 to 100,000.</li>
-            <li>Maximum Runtime: Set the maximum runtime for simulations from 1 to 25 hours.</li>
+            <li>Maximum Runtime: Set the maximum runtime for simulations from 1 to 24 hours.</li>
         </ul>
     </section>
     <section>
