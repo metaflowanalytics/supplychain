@@ -73,33 +73,40 @@
         <h2>Technical Architecture</h2>
         <p><strong>Hybrid Cloud Architecture:</strong> Split Control Plane (hosted by MetaFlow) and Data Plane (hosted by Customer, managed by MetaFlow).</p>
         <div style="overflow-x:auto;">
-            <table border="1" cellspacing="0" cellpadding="8" border-collapse: collapse;">
+            <table border="1" cellspacing="0" cellpadding="8" style="width: 100%; border-collapse: collapse;"> <!-- Added width:100% and border-collapse -->
                 <thead>
                     <tr>
-                        <th style="background-color:#f4f4f4; text-align:left;">Criteria</th>
-                        <th style="background-color:#f4f4f4; text-align:left;">Control Plane</th>
-                        <th style="background-color:#f4f4f4; text-align:left;">Data Plane</th>
+                        <th style="background-color:#f4f4f4; text-align:left; width:30%;"> <!-- Updated width to 30% -->
+                            Criteria
+                        </th>
+                        <th style="background-color:#f4f4f4; text-align:left; width:35%;"> <!-- Updated width to 35% -->
+                            Control Plane
+                        </th>
+                        <th style="background-color:#f4f4f4; text-align:left; width:35%;"> <!-- Updated width to 35% -->
+                            Data Plane
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>What it does</td>
-                        <td>Orchestration & API Management, Deployment Management, Resource Monitoring, Updates</td>
-                        <td>Manage Compute Resources, Run AI Models, Generate Insights, Stores Customer Data</td>
+                        <td style="width:30%;">What it does</td> <!-- Updated width -->
+                        <td style="width:35%;">Orchestration & API Management, Deployment Management, Resource Monitoring, Updates</td> <!-- Updated width -->
+                        <td style="width:35%;">Manage Compute Resources, Run AI Models, Generate Insights, Stores Customer Data</td> <!-- Updated width -->
                     </tr>
                     <tr>
-                        <td>Where it is hosted</td>
-                        <td>MetaFlow Cloud Account</td>
-                        <td>Customer Cloud Account</td>
+                        <td style="width:30%;">Where it is hosted</td> <!-- Updated width -->
+                        <td style="width:35%;">MetaFlow Cloud Account</td> <!-- Updated width -->
+                        <td style="width:35%;">Customer Cloud Account</td> <!-- Updated width -->
                     </tr>
                     <tr>
-                        <td>Who provisions and monitors</td>
-                        <td>MetaFlow</td>
-                        <td>MetaFlow</td>
+                        <td style="width:30%;">Who provisions and monitors</td> <!-- Updated width -->
+                        <td style="width:35%;">MetaFlow</td> <!-- Updated width -->
+                        <td style="width:35%;">MetaFlow</td> <!-- Updated width -->
                     </tr>
                 </tbody>
             </table>
         </div>
+
         <p>MetaFlow cannot directly access the resources in the Customer Cloud account and interacts with them only through AWS APIs. Customer data stays entirely within the Customer Cloud account/VPC, both at rest and in transit.</p>
     
         <p><strong>Example Workflow:</strong></p>
