@@ -11,6 +11,7 @@
       --blue: #1f5eff;
       --orange: #e67600;
       --green: #15803d;
+      --red: #b42318;
       --ink: #1f2937;
       --muted: #667085;
       --line: #e5e7eb;
@@ -23,10 +24,6 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -34,7 +31,7 @@
       background:
         radial-gradient(circle at top left, rgba(31, 94, 255, 0.12), transparent 32%),
         radial-gradient(circle at top right, rgba(230, 118, 0, 0.12), transparent 28%),
-        linear-gradient(180deg, #f9fbff 0%, #ffffff 48%, #f6f8fb 100%);
+        linear-gradient(180deg, #f9fbff 0%, #ffffff 46%, #f6f8fb 100%);
       font-size: 16px;
       line-height: 1.55;
     }
@@ -46,7 +43,7 @@
       align-items: center;
       gap: 18px;
       border-bottom: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(10px);
     }
 
@@ -102,8 +99,8 @@
     }
 
     .hero {
-      padding-top: 76px;
-      padding-bottom: 62px;
+      padding-top: 74px;
+      padding-bottom: 60px;
       display: grid;
       grid-template-columns: 1.08fr 0.92fr;
       gap: 52px;
@@ -123,10 +120,10 @@
 
     h1 {
       margin: 0;
-      max-width: 820px;
+      max-width: 860px;
       color: var(--navy);
-      font-size: clamp(40px, 5.6vw, 68px);
-      line-height: 0.98;
+      font-size: clamp(40px, 5.5vw, 66px);
+      line-height: 0.99;
       letter-spacing: -0.055em;
     }
 
@@ -136,7 +133,7 @@
 
     .hero-copy {
       margin: 24px 0 0;
-      max-width: 720px;
+      max-width: 750px;
       color: var(--muted);
       font-size: clamp(17px, 1.5vw, 19px);
       line-height: 1.7;
@@ -241,7 +238,7 @@
     }
 
     .section-head {
-      max-width: 800px;
+      max-width: 850px;
       margin-bottom: 28px;
     }
 
@@ -326,22 +323,22 @@
     .process p {
       color: #cbd7ea;
       line-height: 1.65;
-      max-width: 820px;
+      max-width: 860px;
       margin: 14px 0 0;
       font-size: 16px;
     }
 
     .steps {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(8, 1fr);
       gap: 12px;
       margin-top: 28px;
     }
 
     .step {
-      min-height: 116px;
+      min-height: 126px;
       border-radius: 20px;
-      padding: 16px;
+      padding: 15px;
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.14);
     }
@@ -357,8 +354,71 @@
     .step strong {
       display: block;
       color: var(--white);
-      font-size: 14px;
+      font-size: 13.5px;
       line-height: 1.38;
+    }
+
+    .feature-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(11, 31, 58, 0.06);
+    }
+
+    .feature-table th,
+    .feature-table td {
+      padding: 16px 18px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .feature-table th {
+      color: var(--navy);
+      background: #eef4ff;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .feature-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .feature-table td:first-child {
+      color: var(--navy);
+      font-weight: 800;
+      width: 24%;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-top: 8px;
+    }
+
+    .badge.green {
+      background: #e9f8f0;
+      color: var(--green);
+    }
+
+    .badge.orange {
+      background: #fff3e6;
+      color: #a65100;
+    }
+
+    .badge.blue {
+      background: #eef4ff;
+      color: var(--blue);
     }
 
     .position-box {
@@ -394,11 +454,16 @@
       color: var(--navy);
     }
 
+    @media (max-width: 1180px) {
+      .steps {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
     @media (max-width: 980px) {
       .hero,
       .grid.three,
-      .grid.two,
-      .steps {
+      .grid.two {
         grid-template-columns: 1fr 1fr;
       }
 
@@ -407,7 +472,7 @@
       }
     }
 
-    @media (max-width: 680px) {
+    @media (max-width: 760px) {
       header {
         align-items: flex-start;
         flex-direction: column;
@@ -451,6 +516,11 @@
       .mini-pill {
         width: fit-content;
       }
+
+      .feature-table {
+        display: block;
+        overflow-x: auto;
+      }
     }
   </style>
 </head>
@@ -474,14 +544,13 @@
         <div class="eyebrow">Agentic governance for inventory parameter decisions</div>
 
         <h1>
-          Explain. Simulate. <span>Decide.</span>
+          Govern every inventory recommendation from <span>signal to decision.</span>
         </h1>
 
         <p class="hero-copy">
-          MetaFlow is an agentic SaaS platform that connects to enterprise planning data,
-          ingests recommended inventory parameter changes, and helps supply chain teams
-          govern safety stock and lot-size decisions with explainability, What-if analysis,
-          decision capture, and audit-ready workflow.
+          MetaFlow connects to enterprise planning data, ingests recommended inventory
+          parameter changes, explains the rationale, runs directional impact analysis,
+          captures approvals and rejections, and preserves an audit-ready decision record.
         </p>
 
         <div class="action-row" aria-label="Core platform actions">
@@ -500,32 +569,32 @@
         <div class="signal">
           <div class="signal-row">
             <div>
-              <strong>Source system data</strong>
-              <span>ERP, planning platforms, optimization engines, and data warehouses</span>
-            </div>
-            <div class="mini-pill">Connect</div>
-          </div>
-
-          <div class="signal-row">
-            <div>
-              <strong>Inventory parameters</strong>
-              <span>Safety stock, lot size, service target, unit cost, lead time, and risk status</span>
+              <strong>Current inventory parameters</strong>
+              <span>Safety stock, lot size, service level, unit cost, lead time, demand context</span>
             </div>
             <div class="mini-pill">Context</div>
           </div>
 
           <div class="signal-row">
             <div>
-              <strong>Recommended changes</strong>
-              <span>Matched to SKU-location records and prepared for planner review</span>
+              <strong>Recommended parameter changes</strong>
+              <span>Matched to SKU-location records, validated, risk-scored, and queued for review</span>
             </div>
             <div class="mini-pill">Review</div>
           </div>
 
           <div class="signal-row">
             <div>
-              <strong>Governed decision</strong>
-              <span>Approve, reject, or escalate with reason, history, and audit events</span>
+              <strong>Explainability and What-if analysis</strong>
+              <span>Grounded rationale, inventory value change, working capital impact, service risk direction</span>
+            </div>
+            <div class="mini-pill">Assess</div>
+          </div>
+
+          <div class="signal-row">
+            <div>
+              <strong>Decision workflow</strong>
+              <span>Approve, reject, or escalate with reason capture, categorization, and audit events</span>
             </div>
             <div class="mini-pill">Decide</div>
           </div>
@@ -535,10 +604,10 @@
 
     <section>
       <div class="section-head">
-        <h2>Core platform capability</h2>
+        <h2>What the platform manages</h2>
         <p>
-          MetaFlow acts as the agentic decision layer between planning-system outputs and
-          governed inventory parameter actions.
+          MetaFlow focuses on the governance lifecycle around inventory parameter
+          recommendations, not replacing the planning engine that produced them.
         </p>
       </div>
 
@@ -547,9 +616,9 @@
           <div class="card-icon">🔌</div>
           <h3>Connect Data</h3>
           <p>
-            Connect inventory parameter data from ERP, planning platforms, optimization
-            engines, and analytical data stores. Bring together the current planning context
-            required for SKU-location decisions.
+            Connect to source systems such as ERP, planning platforms, optimization engines,
+            and analytical data stores. Bring together SKU-location parameters, cost,
+            service targets, demand context, and lead-time context.
           </p>
         </article>
 
@@ -558,7 +627,7 @@
           <h3>Review Changes</h3>
           <p>
             Ingest recommended safety stock and lot-size changes, match them to current
-            parameters, identify risk, and guide planners to the decisions that need attention.
+            SKU-location records, identify unmatched rows, calculate impact, and expose risk.
           </p>
         </article>
 
@@ -578,38 +647,48 @@
         <h2>The governed decision process</h2>
         <p>
           MetaFlow creates a clean path from source-system signal to approved inventory
-          parameter decision. Every important step leaves a trace.
+          parameter decision. Each step is traceable, reviewable, and designed for enterprise control.
         </p>
 
         <div class="steps">
           <div class="step">
             <small>01</small>
-            <strong>Connect source data</strong>
+            <strong>Connect current inventory parameter data</strong>
           </div>
 
           <div class="step">
             <small>02</small>
-            <strong>Ingest recommended changes</strong>
+            <strong>Ingest recommended parameter changes</strong>
           </div>
 
           <div class="step">
             <small>03</small>
-            <strong>Review matched recommendations</strong>
+            <strong>Match recommendations to SKU-location records</strong>
           </div>
 
           <div class="step">
             <small>04</small>
-            <strong>Generate explanation</strong>
+            <strong>Explain recommendation drivers</strong>
           </div>
 
           <div class="step">
             <small>05</small>
-            <strong>Run What-if analysis</strong>
+            <strong>Run What-if impact analysis</strong>
           </div>
 
           <div class="step">
             <small>06</small>
             <strong>Approve, reject, or escalate</strong>
+          </div>
+
+          <div class="step">
+            <small>07</small>
+            <strong>Preserve decision and audit history</strong>
+          </div>
+
+          <div class="step">
+            <small>08</small>
+            <strong>Deploy approved parameter changes</strong>
           </div>
         </div>
       </div>
@@ -617,47 +696,165 @@
 
     <section>
       <div class="section-head">
+        <h2>Platform modules</h2>
+        <p>
+          The platform is organized around the same operating sequence supply chain teams
+          need to trust and govern inventory parameter decisions.
+        </p>
+      </div>
+
+      <table class="feature-table" aria-label="MetaFlow platform modules">
+        <thead>
+          <tr>
+            <th>Module</th>
+            <th>What it does</th>
+            <th>Decision value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Parameter Intelligence Hub</td>
+            <td>
+              Maintains the current SKU-location parameter view, including safety stock,
+              lot size, service target, unit cost, lead-time context, demand context,
+              data quality status, and risk status.
+            </td>
+            <td>
+              Establishes a trusted baseline before any recommendation is reviewed.
+              <br><span class="badge blue">Current-state context</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Recommendation Intake</td>
+            <td>
+              Ingests recommended safety stock and lot-size changes from planning systems,
+              optimization engines, analytical models, or governed file-based channels.
+            </td>
+            <td>
+              Converts planning output into structured, reviewable decision candidates.
+              <br><span class="badge blue">Recommendation queue</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Recommendation Review</td>
+            <td>
+              Shows current versus recommended values, expected inventory value change,
+              working capital impact, service risk direction, confidence, and status.
+            </td>
+            <td>
+              Helps planners focus on the recommendations that need judgment.
+              <br><span class="badge orange">Planner review</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Explainability</td>
+            <td>
+              Generates grounded explanations from available parameter and recommendation
+              context without inventing unsupported causes.
+            </td>
+            <td>
+              Builds planner trust by showing why the recommendation may matter.
+              <br><span class="badge green">Trust layer</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>What-if Analysis</td>
+            <td>
+              Calculates directional impact for inventory value, working capital,
+              lot-size change, and service risk direction.
+            </td>
+            <td>
+              Gives the planner a simple impact lens before approving or rejecting.
+              <br><span class="badge green">Impact lens</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Governance Workflow</td>
+            <td>
+              Supports approval, rejection, and escalation with required reasons,
+              rejection categorization, assignee capture, and transition controls.
+            </td>
+            <td>
+              Turns recommendation handling into a controlled decision workflow.
+              <br><span class="badge orange">Decision control</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Audit and Decision History</td>
+            <td>
+              Preserves recommendation-level events, status changes, decisions,
+              reasons, categories, timestamps, and actors.
+            </td>
+            <td>
+              Creates an auditable record of who decided what, when, and why.
+              <br><span class="badge blue">Audit-ready</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Parameter Deployment</td>
+            <td>
+              Packages approved parameter changes for controlled export or future
+              system deployment into planning or ERP environments.
+            </td>
+            <td>
+              Closes the loop from decision to controlled execution.
+              <br><span class="badge green">Closed loop</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <div class="section-head">
         <h2>What makes the platform useful</h2>
         <p>
           MetaFlow turns inventory parameter recommendations into explainable,
-          traceable, and auditable decisions.
+          traceable, and auditable decisions instead of unmanaged spreadsheet activity.
         </p>
       </div>
 
       <div class="grid two">
         <article class="card">
           <div class="card-icon">💡</div>
-          <h3>Explainability</h3>
+          <h3>Grounded explanations</h3>
           <p>
-            Shows why a recommendation may matter, what data was available, and what
-            trade-offs the planner should consider before approving or rejecting the change.
+            Shows what data was available, what changed, and what trade-offs the planner
+            should consider before approving or rejecting a parameter change.
           </p>
         </article>
 
         <article class="card">
           <div class="card-icon">🧮</div>
-          <h3>What-if Analysis</h3>
+          <h3>Transparent impact analysis</h3>
           <p>
             Estimates inventory value change, working capital impact, lot-size change,
-            and service risk direction using transparent decision-support calculations.
+            and service risk direction using explainable decision-support calculations.
           </p>
         </article>
 
         <article class="card">
           <div class="card-icon">🧾</div>
-          <h3>Decision History</h3>
+          <h3>Decision memory</h3>
           <p>
-            Captures who approved, rejected, or escalated a recommendation, along with
-            reason text, rejection category, assignee, and decision timestamp.
+            Captures approvals, rejections, escalations, reasons, rejection categories,
+            assignees, timestamps, and recommendation status changes.
           </p>
         </article>
 
         <article class="card">
           <div class="card-icon">🛡️</div>
-          <h3>Audit Visibility</h3>
+          <h3>Governance by design</h3>
           <p>
             Recommendation-level audit events make the workflow reviewable, explainable,
-            and ready for operational governance.
+            and ready for operational governance and future learning loops.
           </p>
         </article>
       </div>
@@ -665,11 +862,11 @@
 
     <section>
       <div class="position-box">
-        <strong>MetaFlow Positioning:</strong>
-        MetaFlow does not replace enterprise planning systems. It operates as an
-        agentic SaaS governance layer above planning and optimization outputs, helping
-        teams connect data, review changes, capture decisions, and maintain an
-        audit-ready record of inventory parameter actions.
+        <strong>Where MetaFlow fits:</strong>
+        MetaFlow is an agentic SaaS governance layer above enterprise planning and
+        optimization systems. It connects data, reviews recommended parameter changes,
+        explains impact, captures decisions, preserves audit history, and supports
+        controlled deployment of approved inventory parameter changes.
       </div>
     </section>
   </main>
