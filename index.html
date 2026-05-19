@@ -7,18 +7,15 @@
 
   <style>
     :root {
-      --navy: #0B1F3A;
-      --blue: #1455D9;
-      --cyan: #00A6C8;
-      --orange: #E67600;
-      --green: #1C8C5A;
-      --gray-900: #1F2937;
-      --gray-700: #374151;
-      --gray-500: #6B7280;
-      --gray-100: #F3F6FA;
-      --white: #FFFFFF;
-      --card: #FFFFFF;
-      --border: #E5E7EB;
+      --navy: #0b1f3a;
+      --blue: #1f5eff;
+      --orange: #e67600;
+      --green: #15803d;
+      --ink: #1f2937;
+      --muted: #667085;
+      --line: #e5e7eb;
+      --soft: #f6f8fb;
+      --white: #ffffff;
       --shadow: 0 18px 45px rgba(11, 31, 58, 0.10);
     }
 
@@ -29,245 +26,231 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      color: var(--gray-900);
+      color: var(--ink);
       background:
-        radial-gradient(circle at top left, rgba(20, 85, 217, 0.12), transparent 32%),
+        radial-gradient(circle at top left, rgba(31, 94, 255, 0.12), transparent 32%),
         radial-gradient(circle at top right, rgba(230, 118, 0, 0.12), transparent 28%),
-        linear-gradient(180deg, #F8FBFF 0%, #FFFFFF 42%, #F7F9FC 100%);
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
+        linear-gradient(180deg, #f9fbff 0%, #ffffff 48%, #f6f8fb 100%);
     }
 
     header {
+      padding: 24px 7%;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 22px 7%;
-      background: rgba(255, 255, 255, 0.82);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(10px);
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
-      font-weight: 800;
-      color: var(--navy);
-      letter-spacing: -0.02em;
     }
 
     .brand-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue), #00a6c8);
+      color: var(--white);
       display: grid;
       place-items: center;
-      color: var(--white);
       font-weight: 900;
-      box-shadow: 0 10px 25px rgba(20, 85, 217, 0.25);
+      font-size: 20px;
+      box-shadow: 0 12px 28px rgba(31, 94, 255, 0.22);
     }
 
-    nav {
-      display: flex;
-      gap: 20px;
-      color: var(--gray-700);
-      font-size: 14px;
+    .brand-name {
+      font-weight: 900;
+      color: var(--navy);
+      font-size: 20px;
+      letter-spacing: -0.03em;
     }
 
-    nav a:hover {
-      color: var(--blue);
-    }
-
-    .hero {
-      padding: 82px 7% 64px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 56px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #EEF5FF;
-      color: var(--blue);
-      padding: 8px 12px;
-      border-radius: 999px;
+    .brand-subtitle {
+      color: var(--muted);
       font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 18px;
+      margin-top: 2px;
     }
 
-    .hero h1 {
-      font-size: clamp(42px, 6vw, 76px);
-      line-height: 0.95;
-      margin: 0;
-      color: var(--navy);
-      letter-spacing: -0.06em;
-    }
-
-    .hero h1 span {
-      color: var(--orange);
-    }
-
-    .hero p {
-      font-size: 19px;
-      line-height: 1.7;
-      color: var(--gray-700);
-      max-width: 680px;
-      margin: 24px 0 0;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 18px;
-      border-radius: 14px;
-      font-weight: 800;
-      font-size: 14px;
-      border: 1px solid transparent;
-      transition: 0.2s ease;
-    }
-
-    .button.primary {
-      background: var(--blue);
-      color: var(--white);
-      box-shadow: 0 14px 30px rgba(20, 85, 217, 0.22);
-    }
-
-    .button.primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 38px rgba(20, 85, 217, 0.30);
-    }
-
-    .button.secondary {
-      background: var(--white);
-      color: var(--navy);
-      border-color: var(--border);
-    }
-
-    .button.secondary:hover {
-      border-color: var(--blue);
-      color: var(--blue);
-      transform: translateY(-2px);
-    }
-
-    .hero-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      right: -70px;
-      top: -70px;
-      background: rgba(230, 118, 0, 0.12);
-    }
-
-    .decision-tile {
-      position: relative;
-      display: grid;
-      gap: 14px;
-    }
-
-    .tile-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px;
-      border-radius: 18px;
-      background: var(--gray-100);
-      border: 1px solid var(--border);
-    }
-
-    .tile-row strong {
-      color: var(--navy);
-    }
-
-    .pill {
-      font-size: 12px;
-      font-weight: 800;
-      padding: 7px 10px;
+    .tag {
+      padding: 8px 13px;
       border-radius: 999px;
-      white-space: nowrap;
+      background: #fff3e6;
+      color: #a65100;
+      font-size: 13px;
+      font-weight: 800;
     }
 
-    .pill.orange {
-      color: #9A4A00;
-      background: #FFF0DF;
-    }
-
-    .pill.blue {
-      color: #0D3EA8;
-      background: #EAF1FF;
-    }
-
-    .pill.green {
-      color: #0F6B42;
-      background: #E9F8F0;
-    }
-
-    .pill.gray {
-      color: var(--gray-700);
-      background: #ECEFF3;
+    main {
+      overflow: hidden;
     }
 
     section {
       padding: 56px 7%;
     }
 
-    .section-heading {
+    .hero {
+      padding-top: 78px;
+      padding-bottom: 64px;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--blue);
+      background: #eef4ff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0;
       max-width: 820px;
+      color: var(--navy);
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+    }
+
+    h1 span {
+      color: var(--orange);
+    }
+
+    .hero-copy {
+      margin: 24px 0 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.7;
+    }
+
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .action-card {
+      border: 1px solid var(--line);
+      background: var(--white);
+      border-radius: 16px;
+      padding: 14px 18px;
+      font-weight: 900;
+      color: var(--navy);
+      box-shadow: 0 10px 25px rgba(11, 31, 58, 0.07);
+      cursor: default;
+      user-select: none;
+    }
+
+    .action-card.primary {
+      background: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
+    }
+
+    .console {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .console-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+      gap: 16px;
+    }
+
+    .console-title strong {
+      color: var(--navy);
+      font-size: 18px;
+    }
+
+    .status-pill {
+      background: #e9f8f0;
+      color: var(--green);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .signal {
+      display: grid;
+      gap: 12px;
+    }
+
+    .signal-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 15px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+
+    .signal-row strong {
+      color: var(--navy);
+      font-size: 15px;
+    }
+
+    .signal-row span {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+      display: block;
+      line-height: 1.35;
+    }
+
+    .mini-pill {
+      border-radius: 999px;
+      padding: 7px 9px;
+      font-size: 12px;
+      font-weight: 900;
+      background: #eef4ff;
+      color: var(--blue);
+      white-space: nowrap;
+    }
+
+    .section-head {
+      max-width: 790px;
       margin-bottom: 28px;
     }
 
-    .section-heading h2 {
+    .section-head h2 {
       margin: 0;
-      font-size: clamp(30px, 4vw, 46px);
       color: var(--navy);
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.05;
       letter-spacing: -0.04em;
     }
 
-    .section-heading p {
-      color: var(--gray-700);
+    .section-head p {
+      margin: 14px 0 0;
+      color: var(--muted);
       font-size: 17px;
       line-height: 1.65;
-      margin: 14px 0 0;
     }
 
     .grid {
       display: grid;
       gap: 20px;
-    }
-
-    .grid.four {
-      grid-template-columns: repeat(4, 1fr);
     }
 
     .grid.three {
@@ -279,78 +262,80 @@
     }
 
     .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 22px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
       padding: 24px;
-      box-shadow: 0 10px 28px rgba(11, 31, 58, 0.06);
-      min-height: 170px;
+      min-height: 180px;
+      box-shadow: 0 12px 30px rgba(11, 31, 58, 0.06);
     }
 
-    .card .icon {
+    .card-icon {
       width: 42px;
       height: 42px;
-      border-radius: 14px;
+      border-radius: 15px;
       display: grid;
       place-items: center;
-      margin-bottom: 16px;
-      background: #EEF5FF;
+      background: #eef4ff;
       color: var(--blue);
       font-size: 20px;
+      margin-bottom: 16px;
     }
 
     .card h3 {
       margin: 0 0 10px;
       color: var(--navy);
-      font-size: 18px;
+      font-size: 19px;
     }
 
     .card p {
       margin: 0;
-      color: var(--gray-700);
+      color: var(--muted);
       line-height: 1.58;
       font-size: 15px;
     }
 
-    .workflow {
+    .process {
       background: var(--navy);
-      color: var(--white);
-      border-radius: 32px;
+      border-radius: 34px;
       padding: 36px;
+      color: var(--white);
       box-shadow: var(--shadow);
     }
 
-    .workflow h2 {
-      margin: 0 0 12px;
-      font-size: clamp(28px, 4vw, 44px);
+    .process h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.05;
       letter-spacing: -0.04em;
     }
 
-    .workflow p {
-      color: #C8D4E7;
+    .process p {
+      color: #cbd7ea;
       line-height: 1.65;
-      max-width: 850px;
+      max-width: 820px;
+      margin: 14px 0 0;
     }
 
-    .flow {
+    .steps {
       display: grid;
-      grid-template-columns: repeat(8, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 12px;
       margin-top: 28px;
     }
 
     .step {
+      min-height: 118px;
+      border-radius: 20px;
+      padding: 16px;
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 18px;
-      padding: 16px;
-      min-height: 110px;
     }
 
-    .step-number {
-      color: #79D8F0;
+    .step small {
+      display: block;
+      color: #79d8f0;
       font-weight: 900;
-      font-size: 13px;
       margin-bottom: 10px;
     }
 
@@ -361,91 +346,41 @@
       line-height: 1.35;
     }
 
-    .status-board {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    .status-list {
-      background: var(--white);
-      border: 1px solid var(--border);
+    .decision-box {
+      background: #fff8ef;
+      border: 1px solid #ffd8a8;
+      color: #7a3e00;
       border-radius: 24px;
       padding: 24px;
+      font-weight: 800;
+      line-height: 1.6;
     }
 
-    .status-list h3 {
-      margin: 0 0 14px;
-      color: var(--navy);
-    }
-
-    .status-list ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 12px;
-    }
-
-    .status-list li {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 14px;
-      background: var(--gray-100);
-      border-radius: 14px;
-      color: var(--gray-700);
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .check {
-      color: var(--green);
-      font-weight: 900;
-    }
-
-    .soon {
-      color: var(--orange);
-      font-weight: 900;
-    }
-
-    .note {
-      margin-top: 20px;
-      padding: 18px;
-      background: #FFF7ED;
-      color: #7A3E00;
-      border: 1px solid #FFD9A8;
-      border-radius: 18px;
-      line-height: 1.55;
-      font-weight: 700;
+    .decision-box strong {
+      color: #5c2f00;
     }
 
     footer {
-      padding: 32px 7%;
-      border-top: 1px solid var(--border);
-      color: var(--gray-500);
+      padding: 30px 7%;
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      color: var(--muted);
       display: flex;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
       flex-wrap: wrap;
-      background: var(--white);
+      font-size: 14px;
     }
 
     footer strong {
       color: var(--navy);
     }
 
-    @media (max-width: 1050px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .grid.four,
+    @media (max-width: 980px) {
+      .hero,
       .grid.three,
       .grid.two,
-      .status-board,
-      .flow {
+      .steps {
         grid-template-columns: 1fr 1fr;
       }
     }
@@ -454,31 +389,26 @@
       header {
         align-items: flex-start;
         flex-direction: column;
-        gap: 14px;
+        gap: 12px;
       }
 
-      nav {
-        flex-wrap: wrap;
+      .tag {
+        align-self: flex-start;
+      }
+
+      .hero,
+      .grid.three,
+      .grid.two,
+      .steps {
+        grid-template-columns: 1fr;
       }
 
       .hero {
         padding-top: 48px;
       }
 
-      .grid.four,
-      .grid.three,
-      .grid.two,
-      .status-board,
-      .flow {
-        grid-template-columns: 1fr;
-      }
-
-      .workflow {
+      .process {
         padding: 24px;
-      }
-
-      footer {
-        flex-direction: column;
       }
     }
   </style>
@@ -486,300 +416,219 @@
 
 <body>
   <header>
-    <a href="/" class="brand" aria-label="MetaFlow home">
+    <div class="brand">
       <div class="brand-mark">M</div>
       <div>
-        <div>MetaFlow</div>
-        <small>Inventory Decision Control Plane</small>
+        <div class="brand-name">MetaFlow</div>
+        <div class="brand-subtitle">Inventory Decision Control Plane</div>
       </div>
-    </a>
+    </div>
 
-    <nav aria-label="Primary navigation">
-      <a href="/parameter-upload">Upload Parameters</a>
-      <a href="/parameters">Parameter Hub</a>
-      <a href="/recommendation-upload">Upload Recommendations</a>
-      <a href="/recommendations">Review</a>
-    </nav>
+    <div class="tag">Enterprise Decision Governance</div>
   </header>
 
   <main>
     <section class="hero">
       <div>
-        <div class="eyebrow">⚙️ Agentic governance for inventory decisions</div>
+        <div class="eyebrow">Agentic governance for inventory parameter decisions</div>
 
         <h1>
-          Inventory Decision <span>Control Plane</span>
+          Explain. Simulate. <span>Decide.</span>
         </h1>
 
-        <p>
-          A vendor-neutral governance layer for safety stock, lot-size, and SKU-location
-          inventory parameter recommendations. Explain the change, test the impact,
-          capture the decision, and keep the audit trail clean.
+        <p class="hero-copy">
+          MetaFlow connects to enterprise planning data, ingests recommended inventory
+          parameter changes, and helps supply chain teams govern every safety stock and
+          lot-size decision with explainability, What-if analysis, decision capture, and
+          audit-ready workflow.
         </p>
 
-        <div class="hero-actions">
-          <a class="button primary" href="/parameter-upload">Upload Parameters</a>
-          <a class="button primary" href="/recommendations">Review Recommendations</a>
-          <a class="button secondary" href="/recommendation-upload">Upload Recommendations</a>
+        <div class="action-row" aria-label="Core platform actions">
+          <div class="action-card primary">Connect Data</div>
+          <div class="action-card primary">Review Changes</div>
+          <div class="action-card">Capture Decisions</div>
         </div>
       </div>
 
-      <aside class="hero-card" aria-label="Decision workflow preview">
-        <div class="decision-tile">
-          <div class="tile-row">
-            <strong>Safety Stock</strong>
-            <span class="pill blue">Recommended Change</span>
+      <div class="console">
+        <div class="console-title">
+          <strong>Decision control room</strong>
+          <span class="status-pill">Governed</span>
+        </div>
+
+        <div class="signal">
+          <div class="signal-row">
+            <div>
+              <strong>Source system data</strong>
+              <span>ERP, planning platforms, optimization engines, and data warehouses</span>
+            </div>
+            <div class="mini-pill">Connect</div>
           </div>
 
-          <div class="tile-row">
-            <strong>Explainability</strong>
-            <span class="pill green">Grounded</span>
+          <div class="signal-row">
+            <div>
+              <strong>Inventory parameters</strong>
+              <span>Safety stock, lot size, service target, unit cost, lead time, and risk status</span>
+            </div>
+            <div class="mini-pill">Context</div>
           </div>
 
-          <div class="tile-row">
-            <strong>What-if Lite</strong>
-            <span class="pill orange">Directional Estimate</span>
+          <div class="signal-row">
+            <div>
+              <strong>Recommended changes</strong>
+              <span>Matched to SKU-location records and prepared for planner review</span>
+            </div>
+            <div class="mini-pill">Review</div>
           </div>
 
-          <div class="tile-row">
-            <strong>Governance</strong>
-            <span class="pill gray">Approve · Reject · Escalate</span>
+          <div class="signal-row">
+            <div>
+              <strong>Governed decision</strong>
+              <span>Approve, reject, or escalate with reason, history, and audit events</span>
+            </div>
+            <div class="mini-pill">Decide</div>
           </div>
         </div>
-      </aside>
-    </section>
-
-    <section>
-      <div class="section-heading">
-        <h2>The inventory planning gap</h2>
-        <p>
-          Planning systems can produce recommendations, but the decision process often
-          escapes into spreadsheets, inboxes, and undocumented judgment calls. This MVP
-          turns recommendation review into a governed workflow.
-        </p>
-      </div>
-
-      <div class="grid four">
-        <article class="card">
-          <div class="icon">🧩</div>
-          <h3>Fragmented ownership</h3>
-          <p>SKU-location parameters are reviewed across teams with inconsistent context and handoffs.</p>
-        </article>
-
-        <article class="card">
-          <div class="icon">🔍</div>
-          <h3>Low trust</h3>
-          <p>Planners need to understand why a recommendation exists before changing inventory policy.</p>
-        </article>
-
-        <article class="card">
-          <div class="icon">📝</div>
-          <h3>Manual overrides</h3>
-          <p>Approvals and rejections often happen without structured reasons or categories.</p>
-        </article>
-
-        <article class="card">
-          <div class="icon">🕰️</div>
-          <h3>Weak audit trail</h3>
-          <p>Leadership needs to know who decided, what changed, why it changed, and when.</p>
-        </article>
       </div>
     </section>
 
     <section>
-      <div class="section-heading">
-        <h2>What the MVP does</h2>
+      <div class="section-head">
+        <h2>Core platform capability</h2>
         <p>
-          A focused set of capabilities for governing inventory parameter recommendations
-          from intake to decision.
+          MetaFlow is a decision control plane for inventory parameter recommendations.
+          It connects planning outputs to governed human decisions.
         </p>
       </div>
 
       <div class="grid three">
         <article class="card">
-          <div class="icon">📦</div>
-          <h3>Parameter Intelligence Hub</h3>
+          <div class="card-icon">🔌</div>
+          <h3>Connect Data</h3>
           <p>
-            Upload and inspect SKU-location parameters including safety stock, lot size,
-            service target, unit cost, data quality status, and risk status.
+            Connect inventory parameter data from ERP, planning platforms, optimization
+            engines, and analytical data stores. Bring together the current planning context
+            required for SKU-location decisions.
           </p>
         </article>
 
         <article class="card">
-          <div class="icon">📥</div>
-          <h3>Recommendation Intake</h3>
+          <div class="card-icon">🧭</div>
+          <h3>Review Changes</h3>
           <p>
-            Upload recommended safety stock and lot-size changes, match them to existing
-            parameters, and flag invalid or unmatched rows.
+            Ingest recommended safety stock and lot-size changes, match them to current
+            parameters, identify risk, and guide planners to the decisions that need attention.
           </p>
         </article>
 
         <article class="card">
-          <div class="icon">💡</div>
+          <div class="card-icon">⚖️</div>
+          <h3>Capture Decisions</h3>
+          <p>
+            Approve, reject, or escalate recommendations with reason capture, rejection
+            categorization, decision history, and recommendation-level audit visibility.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="process">
+        <h2>The governed decision process</h2>
+        <p>
+          MetaFlow creates a clean path from source-system signal to approved inventory
+          parameter decision. Every important step leaves a trace.
+        </p>
+
+        <div class="steps">
+          <div class="step">
+            <small>01</small>
+            <strong>Connect source data</strong>
+          </div>
+
+          <div class="step">
+            <small>02</small>
+            <strong>Ingest recommended changes</strong>
+          </div>
+
+          <div class="step">
+            <small>03</small>
+            <strong>Review matched recommendations</strong>
+          </div>
+
+          <div class="step">
+            <small>04</small>
+            <strong>Generate explanation</strong>
+          </div>
+
+          <div class="step">
+            <small>05</small>
+            <strong>Run What-if analysis</strong>
+          </div>
+
+          <div class="step">
+            <small>06</small>
+            <strong>Approve, reject, or escalate</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>What makes the platform useful</h2>
+        <p>
+          MetaFlow turns inventory parameter recommendations into explainable,
+          traceable, and auditable decisions.
+        </p>
+      </div>
+
+      <div class="grid two">
+        <article class="card">
+          <div class="card-icon">💡</div>
           <h3>Explainability</h3>
           <p>
-            Generate grounded explanations that show what data was available, what changed,
-            and what trade-offs the planner should consider.
+            Shows why a recommendation may matter, what data was available, and what
+            trade-offs the planner should consider before approving or rejecting the change.
           </p>
         </article>
 
         <article class="card">
-          <div class="icon">🧮</div>
-          <h3>What-if Lite</h3>
+          <div class="card-icon">🧮</div>
+          <h3>What-if Analysis</h3>
           <p>
-            Run transparent directional calculations for inventory value, working capital,
-            lot-size change, and service risk direction.
+            Estimates inventory value change, working capital impact, lot-size change,
+            and service risk direction using transparent decision-support calculations.
           </p>
         </article>
 
         <article class="card">
-          <div class="icon">⚖️</div>
-          <h3>Governance Workflow</h3>
+          <div class="card-icon">🧾</div>
+          <h3>Decision History</h3>
           <p>
-            Approve, reject, or escalate recommendations with reason capture, categorization,
-            decision history, and audit events.
+            Captures who approved, rejected, or escalated a recommendation, along with
+            reason text, rejection category, assignee, and decision timestamp.
           </p>
         </article>
 
         <article class="card">
-          <div class="icon">🧾</div>
+          <div class="card-icon">🛡️</div>
           <h3>Audit Visibility</h3>
           <p>
-            View recommendation-level events so decisions are traceable, reviewable, and ready
-            for operational governance.
+            Recommendation-level audit events make the workflow reviewable, explainable,
+            and ready for operational governance.
           </p>
         </article>
-      </div>
-
-      <div class="note">
-        What-if Lite is a directional decision-support estimate. It is not a full MEIO simulation.
       </div>
     </section>
 
     <section>
-      <div class="workflow">
-        <h2>Govern every recommendation from intake to decision</h2>
-        <p>
-          The platform creates a clean decision path: bring in the data, review the recommendation,
-          explain the why, test the impact, capture the decision, and preserve the trail.
-        </p>
-
-        <div class="flow">
-          <div class="step">
-            <div class="step-number">01</div>
-            <strong>Upload Parameters</strong>
-          </div>
-
-          <div class="step">
-            <div class="step-number">02</div>
-            <strong>Upload Recommendations</strong>
-          </div>
-
-          <div class="step">
-            <div class="step-number">03</div>
-            <strong>Review</strong>
-          </div>
-
-          <div class="step">
-            <div class="step-number">04</div>
-            <strong>Explain</strong>
-          </div>
-
-          <div class="step">
-            <div class="step-number">05</div>
-            <strong>Run What-if Lite</strong>
-          </div>
-
-          <div class="step">
-            <div class="step-number">06</div>
-            <strong>Approve, Reject, or Escalate</strong>
-          </div>
-
-          <div class="step">
-            <div class="step-number">07</div>
-            <strong>Audit Trail</strong>
-          </div>
-
-          <div class="step">
-            <div class="step-number">08</div>
-            <strong>Export Approved Changes Coming Next</strong>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-heading">
-        <h2>Current MVP status</h2>
-        <p>
-          The product is being built as a practical MVP, with governed decisions first
-          and broader optimization intelligence later.
-        </p>
-      </div>
-
-      <div class="status-board">
-        <div class="status-list">
-          <h3>Available in MVP</h3>
-          <ul>
-            <li>Parameter upload <span class="check">✓</span></li>
-            <li>Parameter Intelligence Hub <span class="check">✓</span></li>
-            <li>Recommendation upload <span class="check">✓</span></li>
-            <li>Recommendation review <span class="check">✓</span></li>
-            <li>Recommendation detail <span class="check">✓</span></li>
-            <li>Explainability <span class="check">✓</span></li>
-            <li>What-if Lite <span class="check">✓</span></li>
-            <li>Governance workflow <span class="check">✓</span></li>
-          </ul>
-        </div>
-
-        <div class="status-list">
-          <h3>Coming next</h3>
-          <ul>
-            <li>Approved parameter export <span class="soon">Next</span></li>
-            <li>Planner dashboard <span class="soon">Soon</span></li>
-            <li>Executive dashboard <span class="soon">Soon</span></li>
-            <li>Global audit trail <span class="soon">Soon</span></li>
-            <li>Post-deployment monitoring <span class="soon">Future</span></li>
-            <li>Decision learning loop <span class="soon">Future</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-heading">
-        <h2>Why this is different</h2>
-        <p>
-          MetaFlow does not try to replace enterprise planning systems. It sits above them
-          as a decision governance layer, turning recommendations into explainable,
-          simulated, approved, rejected, escalated, and auditable decisions.
-        </p>
-      </div>
-
-      <div class="grid three">
-        <article class="card">
-          <div class="icon">🌉</div>
-          <h3>Vendor-neutral overlay</h3>
-          <p>
-            Works as a governance layer around recommendations without forcing a planning-system replacement.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="icon">🎯</div>
-          <h3>Decision-first workflow</h3>
-          <p>
-            Focuses on the human decision path: explain, compare, approve, reject, escalate, and learn.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="icon">🛡️</div>
-          <h3>Audit-ready governance</h3>
-          <p>
-            Captures the who, what, why, and when behind inventory parameter decisions.
-          </p>
-        </article>
+      <div class="decision-box">
+        <strong>Platform positioning:</strong>
+        MetaFlow does not replace enterprise planning systems. It sits above planning
+        and optimization outputs as a governance layer, helping teams connect data,
+        review changes, capture decisions, and maintain an audit-ready record of inventory
+        parameter actions.
       </div>
     </section>
   </main>
