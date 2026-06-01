@@ -3,15 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MetaFlow | Inventory Decision Control Plane</title>
+  <meta
+    name="description"
+    content="MetaFlow is a multi-tenant SaaS platform for inventory management, POS integration, demand forecasting, replenishment planning, simulation, and AI agent automation."
+  />
+  <title>MetaFlow | Inventory Intelligence Platform</title>
 
   <style>
     :root {
       --navy: #0b1f3a;
       --blue: #1f5eff;
+      --cyan: #00a6c8;
       --orange: #e67600;
       --green: #15803d;
-      --red: #b42318;
+      --purple: #6d28d9;
       --ink: #1f2937;
       --muted: #667085;
       --line: #e5e7eb;
@@ -22,6 +27,10 @@
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -45,6 +54,9 @@
       border-bottom: 1px solid var(--line);
       background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     .brand {
@@ -57,7 +69,7 @@
       width: 42px;
       height: 42px;
       border-radius: 14px;
-      background: linear-gradient(135deg, var(--blue), #00a6c8);
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
       color: var(--white);
       display: grid;
       place-items: center;
@@ -120,7 +132,7 @@
 
     h1 {
       margin: 0;
-      max-width: 860px;
+      max-width: 880px;
       color: var(--navy);
       font-size: clamp(40px, 5.5vw, 66px);
       line-height: 0.99;
@@ -133,36 +145,31 @@
 
     .hero-copy {
       margin: 24px 0 0;
-      max-width: 750px;
+      max-width: 760px;
       color: var(--muted);
       font-size: clamp(17px, 1.5vw, 19px);
       line-height: 1.7;
     }
 
-    .action-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
+    .hero-points {
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 760px;
     }
 
-    .action-card {
+    .hero-points li {
       border: 1px solid var(--line);
-      background: var(--white);
+      background: rgba(255, 255, 255, 0.82);
       border-radius: 16px;
-      padding: 14px 18px;
-      font-size: 15px;
-      font-weight: 900;
+      padding: 13px 15px;
       color: var(--navy);
-      box-shadow: 0 10px 25px rgba(11, 31, 58, 0.07);
-      cursor: default;
-      user-select: none;
-    }
-
-    .action-card.primary {
-      background: var(--blue);
-      color: var(--white);
-      border-color: var(--blue);
+      font-size: 14px;
+      font-weight: 800;
+      box-shadow: 0 10px 25px rgba(11, 31, 58, 0.06);
     }
 
     .console {
@@ -238,7 +245,7 @@
     }
 
     .section-head {
-      max-width: 850px;
+      max-width: 880px;
       margin-bottom: 28px;
     }
 
@@ -305,6 +312,18 @@
       font-size: 15px;
     }
 
+    .feature-list {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
+
+    .feature-list li {
+      margin-bottom: 6px;
+    }
+
     .process {
       background: var(--navy);
       border-radius: 34px;
@@ -323,20 +342,20 @@
     .process p {
       color: #cbd7ea;
       line-height: 1.65;
-      max-width: 860px;
+      max-width: 920px;
       margin: 14px 0 0;
       font-size: 16px;
     }
 
     .steps {
       display: grid;
-      grid-template-columns: repeat(8, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 12px;
       margin-top: 28px;
     }
 
     .step {
-      min-height: 126px;
+      min-height: 132px;
       border-radius: 20px;
       padding: 15px;
       background: rgba(255, 255, 255, 0.08);
@@ -421,6 +440,11 @@
       color: var(--blue);
     }
 
+    .badge.purple {
+      background: #f1e9ff;
+      color: var(--purple);
+    }
+
     .position-box {
       background: #fff8ef;
       border: 1px solid #ffd8a8;
@@ -435,6 +459,35 @@
     .position-box strong {
       color: #5c2f00;
       font-weight: 900;
+    }
+
+    .outcome-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .outcome {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: 0 10px 26px rgba(11, 31, 58, 0.05);
+    }
+
+    .outcome strong {
+      display: block;
+      color: var(--navy);
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .outcome span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
     }
 
     footer {
@@ -456,7 +509,11 @@
 
     @media (max-width: 1180px) {
       .steps {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .outcome-strip {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -477,6 +534,7 @@
         align-items: flex-start;
         flex-direction: column;
         gap: 12px;
+        position: static;
       }
 
       .tag {
@@ -486,7 +544,9 @@
       .hero,
       .grid.three,
       .grid.two,
-      .steps {
+      .steps,
+      .hero-points,
+      .outcome-strip {
         grid-template-columns: 1fr;
       }
 
@@ -528,75 +588,76 @@
 <body>
   <header>
     <div class="brand">
-      <div class="brand-mark">M</div>
+      <div class="brand-mark" aria-hidden="true">M</div>
       <div>
         <div class="brand-name">MetaFlow</div>
-        <div class="brand-subtitle">Inventory Decision Control Plane</div>
+        <div class="brand-subtitle">Inventory Intelligence Platform</div>
       </div>
     </div>
 
-    <div class="tag">Agentic SaaS Platform</div>
+    <div class="tag">Multi-Tenant Agentic SaaS</div>
   </header>
 
   <main>
     <section class="hero">
       <div>
-        <div class="eyebrow">Agentic governance for inventory parameter decisions</div>
+        <div class="eyebrow">Inventory, forecasting, replenishment, simulation, and AI agents</div>
 
         <h1>
-          Govern every inventory recommendation from <span>signal to decision.</span>
+          Turn inventory planning into an <span>intelligent operating system.</span>
         </h1>
 
         <p class="hero-copy">
-          MetaFlow connects to enterprise planning data, ingests recommended inventory
-          parameter changes, explains the rationale, runs directional impact analysis,
-          captures approvals and rejections, and preserves an audit-ready decision record.
+          MetaFlow helps businesses manage inventory, connect POS data, forecast demand,
+          optimize replenishment across multi-node supply networks, test risk through
+          simulation, and automate planning work with agentic AI.
         </p>
 
-        <div class="action-row" aria-label="Core platform actions">
-          <div class="action-card primary">Connect Data</div>
-          <div class="action-card primary">Review Changes</div>
-          <div class="action-card">Capture Decisions</div>
-        </div>
+        <ul class="hero-points" aria-label="Platform summary">
+          <li>Real-time inventory visibility</li>
+          <li>POS-driven demand signals</li>
+          <li>ML-powered demand forecasting</li>
+          <li>RL-based replenishment planning</li>
+        </ul>
       </div>
 
-      <div class="console">
+      <div class="console" aria-label="Inventory intelligence console preview">
         <div class="console-title">
-          <strong>Decision control room</strong>
-          <span class="status-pill">Governed</span>
+          <strong>Inventory intelligence console</strong>
+          <span class="status-pill">Connected</span>
         </div>
 
         <div class="signal">
           <div class="signal-row">
             <div>
-              <strong>Current inventory parameters</strong>
-              <span>Safety stock, lot size, service level, unit cost, lead time, demand context</span>
+              <strong>Inventory foundation</strong>
+              <span>Products, SKUs, suppliers, locations, stock movements, orders, barcodes, batches, and serials</span>
             </div>
-            <div class="mini-pill">Context</div>
+            <div class="mini-pill">Track</div>
           </div>
 
           <div class="signal-row">
             <div>
-              <strong>Recommended parameter changes</strong>
-              <span>Matched to SKU-location records, validated, risk-scored, and queued for review</span>
+              <strong>POS demand signals</strong>
+              <span>Daily sales, returns, store-level movement, promotions, seasonality, and stockout signals</span>
             </div>
-            <div class="mini-pill">Review</div>
+            <div class="mini-pill">Connect</div>
           </div>
 
           <div class="signal-row">
             <div>
-              <strong>Explainability and What-if analysis</strong>
-              <span>Grounded rationale, inventory value change, working capital impact, service risk direction</span>
+              <strong>Forecast and replenishment engine</strong>
+              <span>Time series forecasts, ML forecasts, multi-echelon planning, and replenishment recommendations</span>
             </div>
-            <div class="mini-pill">Assess</div>
+            <div class="mini-pill">Plan</div>
           </div>
 
           <div class="signal-row">
             <div>
-              <strong>Decision workflow</strong>
-              <span>Approve, reject, or escalate with reason capture, categorization, and audit events</span>
+              <strong>Agentic automation layer</strong>
+              <span>AI agents monitor exceptions, explain changes, recommend actions, and support planning workflows</span>
             </div>
-            <div class="mini-pill">Decide</div>
+            <div class="mini-pill">Automate</div>
           </div>
         </div>
       </div>
@@ -604,39 +665,70 @@
 
     <section>
       <div class="section-head">
-        <h2>What the platform manages</h2>
+        <h2>One connected platform for inventory decisions</h2>
         <p>
-          MetaFlow focuses on the governance lifecycle around inventory parameter
-          recommendations, not replacing the planning engine that produced them.
+          MetaFlow connects the systems and decisions that usually live apart: inventory,
+          POS sales activity, demand forecasting, replenishment planning, simulation, and
+          AI-assisted automation.
         </p>
       </div>
 
       <div class="grid three">
         <article class="card">
-          <div class="card-icon">🔌</div>
-          <h3>Connect Data</h3>
+          <div class="card-icon" aria-hidden="true">📦</div>
+          <h3>Inventory Management</h3>
           <p>
-            Connect to source systems such as ERP, planning platforms, optimization engines,
-            and analytical data stores. Bring together SKU-location parameters, cost,
-            service targets, demand context, and lead-time context.
+            Manage products, SKUs, suppliers, manufacturers, locations, stock levels,
+            purchase orders, sales orders, stock movements, barcodes, labels, batches,
+            serial numbers, and audit history.
           </p>
         </article>
 
         <article class="card">
-          <div class="card-icon">🧭</div>
-          <h3>Review Changes</h3>
+          <div class="card-icon" aria-hidden="true">🧾</div>
+          <h3>POS Integration</h3>
           <p>
-            Ingest recommended safety stock and lot-size changes, match them to current
-            SKU-location records, identify unmatched rows, calculate impact, and expose risk.
+            Bring real sales activity into planning workflows so the platform understands
+            daily demand, returns, store-level movement, promotions, seasonality, and
+            stockout patterns.
           </p>
         </article>
 
         <article class="card">
-          <div class="card-icon">⚖️</div>
-          <h3>Capture Decisions</h3>
+          <div class="card-icon" aria-hidden="true">📈</div>
+          <h3>Demand Forecasting</h3>
           <p>
-            Approve, reject, or escalate recommendations with reason capture, rejection
-            categorization, decision history, and recommendation-level audit visibility.
+            Use time series models and machine learning models to forecast demand by SKU,
+            store, warehouse, region, or product category with confidence ranges and
+            anomaly detection.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🧠</div>
+          <h3>Replenishment Planning</h3>
+          <p>
+            Generate replenishment recommendations using reinforcement learning for
+            multi-node supply networks across suppliers, warehouses, distribution centers,
+            and stores.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🧪</div>
+          <h3>Simulation and What-If Analysis</h3>
+          <p>
+            Test demand spikes, supplier delays, lead-time changes, safety stock changes,
+            promotions, warehouse shortages, transfers, and network expansion scenarios.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🤖</div>
+          <h3>Agentic AI Automation</h3>
+          <p>
+            AI agents detect inventory risks, explain forecast changes, recommend actions,
+            generate planning summaries, answer questions, and support approval workflows.
           </p>
         </article>
       </div>
@@ -644,51 +736,41 @@
 
     <section>
       <div class="process">
-        <h2>The governed decision process</h2>
+        <h2>How the platform works</h2>
         <p>
-          MetaFlow creates a clean path from source-system signal to approved inventory
-          parameter decision. Each step is traceable, reviewable, and designed for enterprise control.
+          MetaFlow creates a clean operating flow from data connection to inventory visibility,
+          forecasting, replenishment optimization, risk simulation, and AI-assisted action.
         </p>
 
         <div class="steps">
           <div class="step">
             <small>01</small>
-            <strong>Connect current inventory parameter data</strong>
+            <strong>Connect product, inventory, supplier, order, warehouse, and POS data</strong>
           </div>
 
           <div class="step">
             <small>02</small>
-            <strong>Ingest recommended parameter changes</strong>
+            <strong>Create live stock visibility across items, locations, and movements</strong>
           </div>
 
           <div class="step">
             <small>03</small>
-            <strong>Match recommendations to SKU-location records</strong>
+            <strong>Forecast demand using time series and machine learning models</strong>
           </div>
 
           <div class="step">
             <small>04</small>
-            <strong>Explain recommendation drivers</strong>
+            <strong>Optimize replenishment across stores, warehouses, and suppliers</strong>
           </div>
 
           <div class="step">
             <small>05</small>
-            <strong>Run What-if impact analysis</strong>
+            <strong>Run simulations to measure demand, supply, and lead-time risk</strong>
           </div>
 
           <div class="step">
             <small>06</small>
-            <strong>Approve, reject, or escalate</strong>
-          </div>
-
-          <div class="step">
-            <small>07</small>
-            <strong>Preserve decision and audit history</strong>
-          </div>
-
-          <div class="step">
-            <small>08</small>
-            <strong>Deploy approved parameter changes</strong>
+            <strong>Use AI agents to monitor exceptions, explain results, and recommend actions</strong>
           </div>
         </div>
       </div>
@@ -698,8 +780,9 @@
       <div class="section-head">
         <h2>Platform modules</h2>
         <p>
-          The platform is organized around the same operating sequence supply chain teams
-          need to trust and govern inventory parameter decisions.
+          Each module supports a practical planning question: what inventory exists, what
+          customers may need next, what should be ordered, what risks could appear, and what
+          work can be automated.
         </p>
       </div>
 
@@ -713,99 +796,87 @@
         </thead>
         <tbody>
           <tr>
-            <td>Parameter Intelligence Hub</td>
+            <td>Inventory Control Hub</td>
             <td>
-              Maintains the current SKU-location parameter view, including safety stock,
-              lot size, service target, unit cost, lead-time context, demand context,
-              data quality status, and risk status.
+              Maintains product catalog, SKU records, stock by location, supplier and
+              manufacturer details, purchase orders, sales orders, stock movements,
+              barcode actions, batch tracking, serial tracking, labels, reports, and audit trails.
             </td>
             <td>
-              Establishes a trusted baseline before any recommendation is reviewed.
-              <br><span class="badge blue">Current-state context</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Recommendation Intake</td>
-            <td>
-              Ingests recommended safety stock and lot-size changes from planning systems,
-              optimization engines, analytical models, or governed file-based channels.
-            </td>
-            <td>
-              Converts planning output into structured, reviewable decision candidates.
-              <br><span class="badge blue">Recommendation queue</span>
+              Creates a trusted operational view of what stock exists, where it is, and how it moved.
+              <br><span class="badge blue">Inventory visibility</span>
             </td>
           </tr>
 
           <tr>
-            <td>Recommendation Review</td>
+            <td>POS Data Layer</td>
             <td>
-              Shows current versus recommended values, expected inventory value change,
-              working capital impact, service risk direction, confidence, and status.
+              Ingests sales, returns, store activity, product movement, promotion signals,
+              seasonal patterns, and stockout indicators from connected point-of-sale systems.
             </td>
             <td>
-              Helps planners focus on the recommendations that need judgment.
-              <br><span class="badge orange">Planner review</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Explainability</td>
-            <td>
-              Generates grounded explanations from available parameter and recommendation
-              context without inventing unsupported causes.
-            </td>
-            <td>
-              Builds planner trust by showing why the recommendation may matter.
-              <br><span class="badge green">Trust layer</span>
+              Turns sales activity into clean demand signals for forecasting and replenishment.
+              <br><span class="badge green">Demand signal</span>
             </td>
           </tr>
 
           <tr>
-            <td>What-if Analysis</td>
+            <td>Demand Forecasting Engine</td>
             <td>
-              Calculates directional impact for inventory value, working capital,
-              lot-size change, and service risk direction.
+              Uses statistical time series models and machine learning models to generate
+              SKU, store, warehouse, region, and category-level forecasts with confidence ranges.
             </td>
             <td>
-              Gives the planner a simple impact lens before approving or rejecting.
-              <br><span class="badge green">Impact lens</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Governance Workflow</td>
-            <td>
-              Supports approval, rejection, and escalation with required reasons,
-              rejection categorization, assignee capture, and transition controls.
-            </td>
-            <td>
-              Turns recommendation handling into a controlled decision workflow.
-              <br><span class="badge orange">Decision control</span>
+              Helps teams plan ahead instead of reacting after stock problems appear.
+              <br><span class="badge purple">Predictive planning</span>
             </td>
           </tr>
 
           <tr>
-            <td>Audit and Decision History</td>
+            <td>Replenishment Optimizer</td>
             <td>
-              Preserves recommendation-level events, status changes, decisions,
-              reasons, categories, timestamps, and actors.
+              Applies reinforcement learning-based planning for multi-echelon inventory
+              networks, including suppliers, warehouses, distribution centers, and stores.
             </td>
             <td>
-              Creates an auditable record of who decided what, when, and why.
-              <br><span class="badge blue">Audit-ready</span>
+              Recommends what to order, how much to order, when to order, and where to place stock.
+              <br><span class="badge orange">MEIO planning</span>
             </td>
           </tr>
 
           <tr>
-            <td>Parameter Deployment</td>
+            <td>Simulation Studio</td>
             <td>
-              Packages approved parameter changes for controlled export or future
-              system deployment into planning or ERP environments.
+              Tests what-if scenarios for demand changes, supplier delays, lead-time shifts,
+              safety stock adjustments, promotions, warehouse shortages, transfers, and new locations.
             </td>
             <td>
-              Closes the loop from decision to controlled execution.
-              <br><span class="badge green">Closed loop</span>
+              Makes risk visible before teams commit inventory, capital, or operational effort.
+              <br><span class="badge green">Risk lens</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Agentic AI Layer</td>
+            <td>
+              Uses AI agents to monitor exceptions, explain forecasts, recommend replenishment
+              actions, answer natural language questions, generate summaries, and support approvals.
+            </td>
+            <td>
+              Converts planning signals into guided, explainable, and partially automated workflows.
+              <br><span class="badge purple">AI assistance</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Tenant and Governance Layer</td>
+            <td>
+              Supports tenant-based data isolation, role-based access, configurable workflows,
+              audit logs, API-first integration, secure processing, and scalable compute jobs.
+            </td>
+            <td>
+              Provides the SaaS foundation needed for multiple business customers on one platform.
+              <br><span class="badge blue">SaaS control</span>
             </td>
           </tr>
         </tbody>
@@ -814,59 +885,131 @@
 
     <section>
       <div class="section-head">
-        <h2>What makes the platform useful</h2>
+        <h2>What users can ask the AI agents</h2>
         <p>
-          MetaFlow turns inventory parameter recommendations into explainable,
-          traceable, and auditable decisions instead of unmanaged spreadsheet activity.
+          The agentic layer helps planners, buyers, inventory teams, and business leaders
+          ask operational questions in plain English and receive context-aware answers.
         </p>
       </div>
 
       <div class="grid two">
         <article class="card">
-          <div class="card-icon">💡</div>
-          <h3>Grounded explanations</h3>
+          <div class="card-icon" aria-hidden="true">⚠️</div>
+          <h3>Inventory Risk Questions</h3>
           <p>
-            Shows what data was available, what changed, and what trade-offs the planner
-            should consider before approving or rejecting a parameter change.
+            “Which SKUs are at risk of stockout next week?” “Which locations have excess
+            inventory?” “Which items need urgent replenishment?”
           </p>
         </article>
 
         <article class="card">
-          <div class="card-icon">🧮</div>
-          <h3>Transparent impact analysis</h3>
+          <div class="card-icon" aria-hidden="true">🔍</div>
+          <h3>Forecast Explanation</h3>
           <p>
-            Estimates inventory value change, working capital impact, lot-size change,
-            and service risk direction using explainable decision-support calculations.
+            “Why did the forecast increase for this product?” “Which sales patterns changed?”
+            “Was the change caused by promotion, seasonality, or recent demand?”
           </p>
         </article>
 
         <article class="card">
-          <div class="card-icon">🧾</div>
-          <h3>Decision memory</h3>
+          <div class="card-icon" aria-hidden="true">🚚</div>
+          <h3>Replenishment Guidance</h3>
           <p>
-            Captures approvals, rejections, escalations, reasons, rejection categories,
-            assignees, timestamps, and recommendation status changes.
+            “What should we reorder this week?” “Which warehouses should supply which stores?”
+            “How much inventory should be placed at each node?”
           </p>
         </article>
 
         <article class="card">
-          <div class="card-icon">🛡️</div>
-          <h3>Governance by design</h3>
+          <div class="card-icon" aria-hidden="true">🧭</div>
+          <h3>Scenario Analysis</h3>
           <p>
-            Recommendation-level audit events make the workflow reviewable, explainable,
-            and ready for operational governance and future learning loops.
+            “What happens if supplier lead time increases?” “What if demand rises by 20%?”
+            “What if we reduce safety stock for slow-moving items?”
           </p>
         </article>
       </div>
     </section>
 
     <section>
+      <div class="section-head">
+        <h2>Built for multi-tenant SaaS</h2>
+        <p>
+          MetaFlow is designed as a secure, scalable platform where each customer receives
+          a protected workspace while sharing a common cloud-native product foundation.
+        </p>
+      </div>
+
+      <div class="grid three">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🔐</div>
+          <h3>Secure Tenant Workspaces</h3>
+          <p>
+            Tenant-based data isolation, role-based access control, user management,
+            audit logs, and secure data processing protect customer data and workflows.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🧩</div>
+          <h3>Integration-Ready Architecture</h3>
+          <p>
+            API-first integration, plugin-friendly extensibility, and configurable workflows
+            make it easier to connect POS, ERP, planning, warehouse, and analytics systems.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">⚙️</div>
+          <h3>Scalable Planning Jobs</h3>
+          <p>
+            Cloud-native forecasting, optimization, simulation, and AI agent workflows are
+            designed to scale as customers, SKUs, locations, and planning complexity grow.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Business outcomes</h2>
+        <p>
+          The platform helps teams move from disconnected, manual, reactive planning toward
+          connected, predictive, and AI-assisted inventory operations.
+        </p>
+      </div>
+
+      <div class="outcome-strip" aria-label="Business outcomes">
+        <div class="outcome">
+          <strong>Better visibility</strong>
+          <span>Understand stock, movement, locations, suppliers, and exceptions in one place.</span>
+        </div>
+
+        <div class="outcome">
+          <strong>Lower risk</strong>
+          <span>Reduce stockout and overstock exposure through forecasting, planning, and simulation.</span>
+        </div>
+
+        <div class="outcome">
+          <strong>Smarter decisions</strong>
+          <span>Use demand, inventory, supplier, and service-level signals to guide replenishment.</span>
+        </div>
+
+        <div class="outcome">
+          <strong>Less manual work</strong>
+          <span>Let AI agents monitor exceptions, summarize issues, and recommend next actions.</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
       <div class="position-box">
-        <strong>Where MetaFlow fits:</strong>
-        MetaFlow is an agentic SaaS governance layer above enterprise planning and
-        optimization systems. It connects data, reviews recommended parameter changes,
-        explains impact, captures decisions, preserves audit history, and supports
-        controlled deployment of approved inventory parameter changes.
+        <strong>Platform summary:</strong>
+        MetaFlow connects inventory management, POS data, demand forecasting,
+        reinforcement learning-based replenishment planning, simulation, and agentic AI
+        automation into one intelligent SaaS platform. It helps businesses understand what
+        they have, predict what customers will need, decide what to replenish, test risk,
+        and automate planning workflows with explainable AI assistance.
       </div>
     </section>
   </main>
@@ -874,7 +1017,7 @@
   <footer>
     <div>
       <strong>MetaFlow</strong><br />
-      Inventory Decision Control Plane
+      Inventory Intelligence Platform
     </div>
 
     <div>
