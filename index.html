@@ -11,18 +11,18 @@
 
   <style>
     :root {
-      --navy: #0b1f3a;
-      --blue: #1f5eff;
-      --cyan: #00a6c8;
-      --orange: #e67600;
-      --green: #15803d;
-      --purple: #6d28d9;
-      --ink: #1f2937;
-      --muted: #667085;
-      --line: #e5e7eb;
-      --soft: #f6f8fb;
-      --white: #ffffff;
-      --shadow: 0 18px 45px rgba(11, 31, 58, 0.10);
+      --primary: #0f6cbf;
+      --primary-dark: #0a4d8f;
+      --primary-soft: #eef7ff;
+      --text: #1f2933;
+      --muted: #5f6f7f;
+      --border: #dfe7ef;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --footer: #0f172a;
+      --shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+      --max-width: 1180px;
     }
 
     * {
@@ -35,994 +35,909 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at top left, rgba(31, 94, 255, 0.12), transparent 32%),
-        radial-gradient(circle at top right, rgba(230, 118, 0, 0.12), transparent 28%),
-        linear-gradient(180deg, #f9fbff 0%, #ffffff 46%, #f6f8fb 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--surface);
       font-size: 16px;
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
-    header {
-      padding: 22px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      border-bottom: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(10px);
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.96);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
+    }
+
+    .header-inner {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
+      min-width: 220px;
     }
 
     .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--blue), var(--cyan));
-      color: var(--white);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: #ffffff;
       display: grid;
       place-items: center;
-      font-weight: 900;
-      font-size: 20px;
-      box-shadow: 0 12px 28px rgba(31, 94, 255, 0.22);
+      font-weight: 800;
+      font-size: 19px;
+      line-height: 1;
     }
 
     .brand-name {
-      font-weight: 900;
-      color: var(--navy);
+      color: var(--text);
       font-size: 20px;
-      letter-spacing: -0.03em;
+      font-weight: 750;
+      letter-spacing: -0.02em;
       line-height: 1.1;
     }
 
     .brand-subtitle {
       color: var(--muted);
       font-size: 13px;
-      margin-top: 3px;
+      margin-top: 2px;
     }
 
-    .tag {
-      padding: 8px 13px;
-      border-radius: 999px;
-      background: #fff3e6;
-      color: #a65100;
-      font-size: 13px;
-      font-weight: 800;
-      white-space: nowrap;
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav a:hover {
+      color: var(--primary);
     }
 
     main {
       overflow: hidden;
     }
 
-    section {
-      padding: 54px 7%;
+    .section {
+      padding: 72px 0;
+    }
+
+    .section.soft {
+      background: var(--surface-soft);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
     }
 
     .hero {
-      padding-top: 74px;
-      padding-bottom: 60px;
+      padding: 92px 0 80px;
+      background:
+        linear-gradient(180deg, #ffffff 0%, #f9fcff 100%);
+    }
+
+    .hero-grid {
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 52px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px;
       align-items: center;
     }
 
     .eyebrow {
-      display: inline-block;
-      color: var(--blue);
-      background: #eef4ff;
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 900;
-      margin-bottom: 20px;
+      color: var(--primary);
+      font-size: 14px;
+      line-height: 1.4;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
     }
 
     h1 {
-      margin: 0;
-      max-width: 880px;
-      color: var(--navy);
-      font-size: clamp(40px, 5.5vw, 66px);
-      line-height: 0.99;
-      letter-spacing: -0.055em;
+      color: var(--text);
+      font-size: clamp(42px, 5vw, 64px);
+      line-height: 1.04;
+      letter-spacing: -0.045em;
+      margin-bottom: 22px;
+      font-weight: 800;
     }
 
     h1 span {
-      color: var(--orange);
+      color: var(--primary);
+      display: block;
     }
 
     .hero-copy {
-      margin: 24px 0 0;
-      max-width: 760px;
+      max-width: 720px;
       color: var(--muted);
-      font-size: clamp(17px, 1.5vw, 19px);
-      line-height: 1.7;
+      font-size: 18px;
+      line-height: 1.75;
+      margin-bottom: 0;
     }
 
-    .hero-points {
-      margin: 28px 0 0;
-      padding: 0;
-      list-style: none;
+    .hero-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+
+    .panel-title {
+      color: var(--text);
+      font-weight: 750;
+      font-size: 17px;
+      line-height: 1.3;
+    }
+
+    .panel-subtitle {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    .pill {
+      color: var(--primary-dark);
+      background: var(--primary-soft);
+      border: 1px solid #cde7ff;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .metric-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
-      max-width: 760px;
+      margin-bottom: 18px;
     }
 
-    .hero-points li {
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.82);
-      border-radius: 16px;
-      padding: 13px 15px;
-      color: var(--navy);
-      font-size: 14px;
+    .metric {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .metric strong {
+      color: var(--text);
+      display: block;
+      font-size: 22px;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      display: block;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .signal-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .signal-item {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #ffffff;
+    }
+
+    .signal-icon,
+    .feature-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      color: var(--primary);
+      background: var(--primary-soft);
+      border: 1px solid #d7ecff;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
       font-weight: 800;
-      box-shadow: 0 10px 25px rgba(11, 31, 58, 0.06);
     }
 
-    .console {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 30px;
+    .signal-item strong {
+      display: block;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.35;
+      margin-bottom: 2px;
+    }
+
+    .signal-item span {
+      color: var(--muted);
+      display: block;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .section-header {
+      max-width: 820px;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: var(--text);
+      font-size: clamp(30px, 3vw, 42px);
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+      margin-bottom: 14px;
+      font-weight: 800;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      min-height: 236px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+    }
+
+    .feature-icon {
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 {
+      color: var(--text);
+      font-size: 20px;
+      line-height: 1.25;
+      margin-bottom: 10px;
+      font-weight: 750;
+      letter-spacing: -0.015em;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+      margin-bottom: 0;
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .module-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+    }
+
+    .module-card h3 {
+      color: var(--text);
+      font-size: 19px;
+      line-height: 1.3;
+      margin-bottom: 9px;
+      font-weight: 750;
+    }
+
+    .module-card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .module-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .module-list li + li {
+      margin-top: 5px;
+    }
+
+    .workflow {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
       padding: 28px;
       box-shadow: var(--shadow);
     }
 
-    .console-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 22px;
-      gap: 16px;
-    }
-
-    .console-title strong {
-      color: var(--navy);
-      font-size: 18px;
-      line-height: 1.3;
-    }
-
-    .status-pill {
-      background: #e9f8f0;
-      color: var(--green);
-      padding: 7px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-
-    .signal {
-      display: grid;
-      gap: 12px;
-    }
-
-    .signal-row {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 12px;
-      align-items: center;
-      padding: 15px;
-      background: var(--soft);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-    }
-
-    .signal-row strong {
-      color: var(--navy);
-      font-size: 15px;
-      line-height: 1.25;
-    }
-
-    .signal-row span {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 4px;
-      display: block;
-      line-height: 1.4;
-    }
-
-    .mini-pill {
-      border-radius: 999px;
-      padding: 7px 9px;
-      font-size: 12px;
-      font-weight: 900;
-      background: #eef4ff;
-      color: var(--blue);
-      white-space: nowrap;
-    }
-
-    .section-head {
-      max-width: 880px;
-      margin-bottom: 28px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      color: var(--navy);
-      font-size: clamp(28px, 3.5vw, 40px);
-      line-height: 1.1;
-      letter-spacing: -0.04em;
-    }
-
-    .section-head p {
-      margin: 14px 0 0;
-      color: var(--muted);
-      font-size: 16.5px;
-      line-height: 1.65;
-    }
-
-    .grid {
-      display: grid;
-      gap: 20px;
-    }
-
-    .grid.three {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .grid.two {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .card {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 24px;
-      min-height: 178px;
-      box-shadow: 0 12px 30px rgba(11, 31, 58, 0.06);
-    }
-
-    .card-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 15px;
-      display: grid;
-      place-items: center;
-      background: #eef4ff;
-      color: var(--blue);
-      font-size: 20px;
-      margin-bottom: 16px;
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      color: var(--navy);
-      font-size: 19px;
-      line-height: 1.25;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.58;
-      font-size: 15px;
-    }
-
-    .feature-list {
-      margin: 14px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 14.5px;
-      line-height: 1.55;
-    }
-
-    .feature-list li {
-      margin-bottom: 6px;
-    }
-
-    .process {
-      background: var(--navy);
-      border-radius: 34px;
-      padding: 36px;
-      color: var(--white);
-      box-shadow: var(--shadow);
-    }
-
-    .process h2 {
-      margin: 0;
-      font-size: clamp(28px, 3.5vw, 40px);
-      line-height: 1.1;
-      letter-spacing: -0.04em;
-    }
-
-    .process p {
-      color: #cbd7ea;
-      line-height: 1.65;
-      max-width: 920px;
-      margin: 14px 0 0;
-      font-size: 16px;
-    }
-
-    .steps {
+    .workflow-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
       gap: 12px;
-      margin-top: 28px;
     }
 
-    .step {
-      min-height: 132px;
-      border-radius: 20px;
-      padding: 15px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.14);
+    .workflow-step {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      background: var(--surface-soft);
+      min-height: 145px;
     }
 
-    .step small {
+    .workflow-step small {
+      color: var(--primary);
       display: block;
-      color: #79d8f0;
-      font-weight: 900;
-      margin-bottom: 10px;
       font-size: 12px;
-    }
-
-    .step strong {
-      display: block;
-      color: var(--white);
-      font-size: 13.5px;
-      line-height: 1.38;
-    }
-
-    .feature-table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 12px 30px rgba(11, 31, 58, 0.06);
-    }
-
-    .feature-table th,
-    .feature-table td {
-      padding: 16px 18px;
-      text-align: left;
-      vertical-align: top;
-      border-bottom: 1px solid var(--line);
-      font-size: 15px;
-      line-height: 1.55;
-    }
-
-    .feature-table th {
-      color: var(--navy);
-      background: #eef4ff;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .feature-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .feature-table td:first-child {
-      color: var(--navy);
       font-weight: 800;
-      width: 24%;
+      margin-bottom: 10px;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 5px 8px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 900;
-      margin-top: 8px;
+    .workflow-step strong {
+      color: var(--text);
+      display: block;
+      font-size: 14px;
+      line-height: 1.45;
+      font-weight: 750;
     }
 
-    .badge.green {
-      background: #e9f8f0;
-      color: var(--green);
-    }
-
-    .badge.orange {
-      background: #fff3e6;
-      color: #a65100;
-    }
-
-    .badge.blue {
-      background: #eef4ff;
-      color: var(--blue);
-    }
-
-    .badge.purple {
-      background: #f1e9ff;
-      color: var(--purple);
-    }
-
-    .position-box {
-      background: #fff8ef;
-      border: 1px solid #ffd8a8;
-      color: #7a3e00;
-      border-radius: 24px;
-      padding: 24px;
-      font-weight: 700;
-      line-height: 1.6;
-      font-size: 16px;
-    }
-
-    .position-box strong {
-      color: #5c2f00;
-      font-weight: 900;
-    }
-
-    .outcome-strip {
+    .outcomes {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-top: 22px;
+      gap: 18px;
     }
 
     .outcome {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 18px;
-      box-shadow: 0 10px 26px rgba(11, 31, 58, 0.05);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
     }
 
     .outcome strong {
+      color: var(--text);
       display: block;
-      color: var(--navy);
-      font-size: 16px;
-      margin-bottom: 6px;
+      font-size: 18px;
+      line-height: 1.25;
+      margin-bottom: 8px;
+      font-weight: 750;
     }
 
     .outcome span {
-      display: block;
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.5;
+      display: block;
+      font-size: 15px;
+      line-height: 1.6;
     }
 
-    footer {
-      padding: 30px 7%;
-      background: var(--white);
-      border-top: 1px solid var(--line);
+    .agent-questions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .question-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 16px;
+      padding: 18px 20px;
       color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .question-card strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .site-footer {
+      background: var(--footer);
+      color: #cbd5e1;
+      padding: 38px 0;
+    }
+
+    .footer-inner {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
       display: flex;
+      align-items: flex-start;
       justify-content: space-between;
-      gap: 18px;
+      gap: 24px;
       flex-wrap: wrap;
       font-size: 14px;
       line-height: 1.5;
     }
 
-    footer strong {
-      color: var(--navy);
+    .site-footer strong {
+      color: #ffffff;
+      font-weight: 750;
     }
 
-    @media (max-width: 1180px) {
-      .steps {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .outcome-strip {
+    @media (max-width: 1100px) {
+      .feature-grid,
+      .outcomes {
         grid-template-columns: repeat(2, 1fr);
       }
-    }
 
-    @media (max-width: 980px) {
-      .hero,
-      .grid.three,
-      .grid.two {
-        grid-template-columns: 1fr 1fr;
+      .module-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .hero {
-        gap: 34px;
+      .workflow-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 760px) {
-      header {
+    @media (max-width: 860px) {
+      .header-inner {
         align-items: flex-start;
         flex-direction: column;
-        gap: 12px;
-        position: static;
+        padding: 16px 0;
       }
 
-      .tag {
-        align-self: flex-start;
-      }
-
-      .hero,
-      .grid.three,
-      .grid.two,
-      .steps,
-      .hero-points,
-      .outcome-strip {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 42px 6%;
+      .nav {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 14px 18px;
       }
 
       .hero {
-        padding-top: 48px;
+        padding: 62px 0;
       }
 
-      .process,
-      .console,
-      .card,
-      .position-box {
-        border-radius: 22px;
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 34px;
       }
 
-      .process {
-        padding: 24px;
+      .section {
+        padding: 56px 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container,
+      .header-inner,
+      .footer-inner {
+        width: min(100% - 28px, var(--max-width));
       }
 
-      .signal-row {
+      .feature-grid,
+      .module-grid,
+      .workflow-grid,
+      .outcomes,
+      .agent-questions,
+      .metric-grid {
         grid-template-columns: 1fr;
       }
 
-      .mini-pill {
-        width: fit-content;
+      h1 {
+        font-size: 40px;
       }
 
-      .feature-table {
-        display: block;
-        overflow-x: auto;
+      .hero-copy,
+      .section-header p {
+        font-size: 16px;
+      }
+
+      .hero-panel,
+      .workflow {
+        border-radius: 18px;
+        padding: 18px;
       }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="brand">
-      <div class="brand-mark" aria-hidden="true">M</div>
-      <div>
-        <div class="brand-name">MetaFlow</div>
-        <div class="brand-subtitle">Inventory Intelligence Platform</div>
-      </div>
-    </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="MetaFlow home">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>
+          <span class="brand-name">MetaFlow</span>
+          <span class="brand-subtitle">Inventory Intelligence Platform</span>
+        </span>
+      </a>
 
-    <div class="tag">Multi-Tenant Agentic SaaS</div>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#modules">Modules</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#agents">AI Agents</a>
+        <a href="#outcomes">Outcomes</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div>
-        <div class="eyebrow">Inventory, forecasting, replenishment, simulation, and AI agents</div>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Inventory management, forecasting, replenishment, simulation, and AI agents</div>
 
-        <h1>
-          Turn inventory planning into an <span>intelligent operating system.</span>
-        </h1>
+          <h1 id="hero-title">
+            Intelligent Inventory Planning
+            <span>and more with MetaFlow</span>
+          </h1>
 
-        <p class="hero-copy">
-          MetaFlow helps businesses manage inventory, connect POS data, forecast demand,
-          optimize replenishment across multi-node supply networks, test risk through
-          simulation, and automate planning work with agentic AI.
-        </p>
-
-        <ul class="hero-points" aria-label="Platform summary">
-          <li>Real-time inventory visibility</li>
-          <li>POS-driven demand signals</li>
-          <li>ML-powered demand forecasting</li>
-          <li>RL-based replenishment planning</li>
-        </ul>
-      </div>
-
-      <div class="console" aria-label="Inventory intelligence console preview">
-        <div class="console-title">
-          <strong>Inventory intelligence console</strong>
-          <span class="status-pill">Connected</span>
+          <p class="hero-copy">
+            MetaFlow brings inventory operations, POS demand signals, machine learning forecasts,
+            multi-node replenishment planning, what-if simulation, and agentic AI into one clean
+            multi-tenant SaaS platform.
+          </p>
         </div>
 
-        <div class="signal">
-          <div class="signal-row">
+        <aside class="hero-panel" aria-label="Inventory intelligence summary">
+          <div class="panel-header">
             <div>
-              <strong>Inventory foundation</strong>
-              <span>Products, SKUs, suppliers, locations, stock movements, orders, barcodes, batches, and serials</span>
+              <div class="panel-title">Inventory intelligence view</div>
+              <div class="panel-subtitle">Live stock context with planning signals</div>
             </div>
-            <div class="mini-pill">Track</div>
+            <div class="pill">Connected</div>
           </div>
 
-          <div class="signal-row">
-            <div>
-              <strong>POS demand signals</strong>
-              <span>Daily sales, returns, store-level movement, promotions, seasonality, and stockout signals</span>
+          <div class="metric-grid" aria-label="Illustrative planning metrics">
+            <div class="metric">
+              <strong>2,840</strong>
+              <span>active SKUs monitored</span>
             </div>
-            <div class="mini-pill">Connect</div>
-          </div>
-
-          <div class="signal-row">
-            <div>
-              <strong>Forecast and replenishment engine</strong>
-              <span>Time series forecasts, ML forecasts, multi-echelon planning, and replenishment recommendations</span>
+            <div class="metric">
+              <strong>36</strong>
+              <span>locations connected</span>
             </div>
-            <div class="mini-pill">Plan</div>
-          </div>
-
-          <div class="signal-row">
-            <div>
-              <strong>Agentic automation layer</strong>
-              <span>AI agents monitor exceptions, explain changes, recommend actions, and support planning workflows</span>
+            <div class="metric">
+              <strong>18%</strong>
+              <span>stockout risk reduction target</span>
             </div>
-            <div class="mini-pill">Automate</div>
+            <div class="metric">
+              <strong>24h</strong>
+              <span>latest POS demand refresh</span>
+            </div>
+          </div>
+
+          <div class="signal-list">
+            <div class="signal-item">
+              <div class="signal-icon" aria-hidden="true">01</div>
+              <div>
+                <strong>Stock visibility</strong>
+                <span>Products, locations, suppliers, stock movements, orders, batches, and serials.</span>
+              </div>
+            </div>
+
+            <div class="signal-item">
+              <div class="signal-icon" aria-hidden="true">02</div>
+              <div>
+                <strong>Forecast signal</strong>
+                <span>POS sales, returns, promotions, seasonality, and store-level demand patterns.</span>
+              </div>
+            </div>
+
+            <div class="signal-item">
+              <div class="signal-icon" aria-hidden="true">03</div>
+              <div>
+                <strong>Replenishment guidance</strong>
+                <span>Recommended order quantity, timing, and placement across inventory nodes.</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section soft" id="capabilities">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Core capabilities</div>
+          <h2>Built on practical inventory workflows</h2>
+          <p>
+            The platform starts with the simple questions every inventory team asks: what exists,
+            where it is, what is changing, what customers may need next, and what action should be taken.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">P</div>
+            <h3>Organize Products</h3>
+            <p>
+              Maintain a clean catalog of products, SKUs, categories, suppliers, manufacturers,
+              barcodes, labels, batches, serial numbers, and bill-of-material records.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">S</div>
+            <h3>Know Stock Instantly</h3>
+            <p>
+              View available stock by item, location, warehouse, store, supplier, movement history,
+              purchase orders, sales orders, and audit events.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">D</div>
+            <h3>Forecast Demand</h3>
+            <p>
+              Use time series and machine learning models to forecast demand by SKU, store,
+              warehouse, region, or category with confidence ranges and anomaly detection.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">R</div>
+            <h3>Plan Replenishment</h3>
+            <p>
+              Generate replenishment recommendations across suppliers, warehouses,
+              distribution centers, and stores using multi-node optimization logic.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="modules">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Platform modules</div>
+          <h2>Inventory operations and planning in one place</h2>
+          <p>
+            MetaFlow combines operational inventory control with demand intelligence,
+            replenishment optimization, risk analysis, and AI-assisted workflows.
+          </p>
+        </div>
+
+        <div class="module-grid">
+          <article class="module-card">
+            <h3>Inventory Control Hub</h3>
+            <p>Creates a trusted view of products, suppliers, locations, stock, orders, and movements.</p>
+            <ul class="module-list">
+              <li>Product and SKU catalog</li>
+              <li>Supplier and manufacturer records</li>
+              <li>Purchase and sales order context</li>
+              <li>Barcode, batch, serial, and label support</li>
+            </ul>
+          </article>
+
+          <article class="module-card">
+            <h3>POS Data Layer</h3>
+            <p>Connects sales activity to planning signals so demand is based on real customer movement.</p>
+            <ul class="module-list">
+              <li>Daily sales and returns</li>
+              <li>Store-level movement</li>
+              <li>Promotions and seasonal patterns</li>
+              <li>Stockout and fast-mover signals</li>
+            </ul>
+          </article>
+
+          <article class="module-card">
+            <h3>Demand Forecasting Engine</h3>
+            <p>Predicts future demand using statistical and machine learning forecasting methods.</p>
+            <ul class="module-list">
+              <li>SKU, store, warehouse, and region forecasts</li>
+              <li>Short-term and long-term views</li>
+              <li>Confidence ranges</li>
+              <li>Demand anomaly detection</li>
+            </ul>
+          </article>
+
+          <article class="module-card">
+            <h3>Replenishment Optimizer</h3>
+            <p>Recommends what to order, how much to order, when to order, and where to place inventory.</p>
+            <ul class="module-list">
+              <li>Multi-echelon inventory planning</li>
+              <li>Supplier-to-warehouse planning</li>
+              <li>Warehouse-to-store replenishment</li>
+              <li>Service-level and cost trade-offs</li>
+            </ul>
+          </article>
+
+          <article class="module-card">
+            <h3>Simulation Studio</h3>
+            <p>Tests operational risk before teams commit inventory, capital, or supplier actions.</p>
+            <ul class="module-list">
+              <li>Demand spike scenarios</li>
+              <li>Supplier delay scenarios</li>
+              <li>Lead-time and safety stock changes</li>
+              <li>Store, warehouse, and transfer decisions</li>
+            </ul>
+          </article>
+
+          <article class="module-card">
+            <h3>Agentic AI Layer</h3>
+            <p>Uses AI agents to explain changes, monitor exceptions, summarize risks, and guide actions.</p>
+            <ul class="module-list">
+              <li>Inventory risk detection</li>
+              <li>Forecast explanation</li>
+              <li>Replenishment recommendations</li>
+              <li>Planning summaries and workflow support</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="workflow">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Operating flow</div>
+          <h2>A clean path from data to decision</h2>
+          <p>
+            Each step is designed to be understandable for inventory teams, demand planners,
+            replenishment buyers, warehouse operators, and business leaders.
+          </p>
+        </div>
+
+        <div class="workflow">
+          <div class="workflow-grid">
+            <div class="workflow-step">
+              <small>01</small>
+              <strong>Connect product, inventory, supplier, order, warehouse, and POS data</strong>
+            </div>
+            <div class="workflow-step">
+              <small>02</small>
+              <strong>Create live stock visibility across items, locations, and movements</strong>
+            </div>
+            <div class="workflow-step">
+              <small>03</small>
+              <strong>Forecast demand using time series and machine learning models</strong>
+            </div>
+            <div class="workflow-step">
+              <small>04</small>
+              <strong>Optimize replenishment across stores, warehouses, and suppliers</strong>
+            </div>
+            <div class="workflow-step">
+              <small>05</small>
+              <strong>Run simulations to measure demand, supply, and lead-time risk</strong>
+            </div>
+            <div class="workflow-step">
+              <small>06</small>
+              <strong>Use AI agents to explain results, monitor exceptions, and recommend actions</strong>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="section-head">
-        <h2>One connected platform for inventory decisions</h2>
-        <p>
-          MetaFlow connects the systems and decisions that usually live apart: inventory,
-          POS sales activity, demand forecasting, replenishment planning, simulation, and
-          AI-assisted automation.
-        </p>
-      </div>
-
-      <div class="grid three">
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">📦</div>
-          <h3>Inventory Management</h3>
+    <section class="section" id="agents">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">AI agent examples</div>
+          <h2>Plain-English planning support</h2>
           <p>
-            Manage products, SKUs, suppliers, manufacturers, locations, stock levels,
-            purchase orders, sales orders, stock movements, barcodes, labels, batches,
-            serial numbers, and audit history.
+            The agentic layer helps users ask operational questions without digging through
+            reports, exports, and planning spreadsheets.
           </p>
-        </article>
+        </div>
 
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">🧾</div>
-          <h3>POS Integration</h3>
-          <p>
-            Bring real sales activity into planning workflows so the platform understands
-            daily demand, returns, store-level movement, promotions, seasonality, and
-            stockout patterns.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">📈</div>
-          <h3>Demand Forecasting</h3>
-          <p>
-            Use time series models and machine learning models to forecast demand by SKU,
-            store, warehouse, region, or product category with confidence ranges and
-            anomaly detection.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">🧠</div>
-          <h3>Replenishment Planning</h3>
-          <p>
-            Generate replenishment recommendations using reinforcement learning for
-            multi-node supply networks across suppliers, warehouses, distribution centers,
-            and stores.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">🧪</div>
-          <h3>Simulation and What-If Analysis</h3>
-          <p>
-            Test demand spikes, supplier delays, lead-time changes, safety stock changes,
-            promotions, warehouse shortages, transfers, and network expansion scenarios.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">🤖</div>
-          <h3>Agentic AI Automation</h3>
-          <p>
-            AI agents detect inventory risks, explain forecast changes, recommend actions,
-            generate planning summaries, answer questions, and support approval workflows.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <div class="process">
-        <h2>How the platform works</h2>
-        <p>
-          MetaFlow creates a clean operating flow from data connection to inventory visibility,
-          forecasting, replenishment optimization, risk simulation, and AI-assisted action.
-        </p>
-
-        <div class="steps">
-          <div class="step">
-            <small>01</small>
-            <strong>Connect product, inventory, supplier, order, warehouse, and POS data</strong>
+        <div class="agent-questions">
+          <div class="question-card">
+            <strong>Inventory risk</strong>
+            Which SKUs are at risk of stockout next week, and which locations need attention?
           </div>
-
-          <div class="step">
-            <small>02</small>
-            <strong>Create live stock visibility across items, locations, and movements</strong>
+          <div class="question-card">
+            <strong>Forecast explanation</strong>
+            Why did the forecast increase for this product, and which demand signals changed?
           </div>
-
-          <div class="step">
-            <small>03</small>
-            <strong>Forecast demand using time series and machine learning models</strong>
+          <div class="question-card">
+            <strong>Replenishment guidance</strong>
+            What should be reordered this week, and how much should be placed at each node?
           </div>
-
-          <div class="step">
-            <small>04</small>
-            <strong>Optimize replenishment across stores, warehouses, and suppliers</strong>
-          </div>
-
-          <div class="step">
-            <small>05</small>
-            <strong>Run simulations to measure demand, supply, and lead-time risk</strong>
-          </div>
-
-          <div class="step">
-            <small>06</small>
-            <strong>Use AI agents to monitor exceptions, explain results, and recommend actions</strong>
+          <div class="question-card">
+            <strong>Scenario analysis</strong>
+            What happens if supplier lead time increases or demand rises by twenty percent?
           </div>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="section-head">
-        <h2>Platform modules</h2>
-        <p>
-          Each module supports a practical planning question: what inventory exists, what
-          customers may need next, what should be ordered, what risks could appear, and what
-          work can be automated.
-        </p>
-      </div>
-
-      <table class="feature-table" aria-label="MetaFlow platform modules">
-        <thead>
-          <tr>
-            <th>Module</th>
-            <th>What it does</th>
-            <th>Decision value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Inventory Control Hub</td>
-            <td>
-              Maintains product catalog, SKU records, stock by location, supplier and
-              manufacturer details, purchase orders, sales orders, stock movements,
-              barcode actions, batch tracking, serial tracking, labels, reports, and audit trails.
-            </td>
-            <td>
-              Creates a trusted operational view of what stock exists, where it is, and how it moved.
-              <br><span class="badge blue">Inventory visibility</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td>POS Data Layer</td>
-            <td>
-              Ingests sales, returns, store activity, product movement, promotion signals,
-              seasonal patterns, and stockout indicators from connected point-of-sale systems.
-            </td>
-            <td>
-              Turns sales activity into clean demand signals for forecasting and replenishment.
-              <br><span class="badge green">Demand signal</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Demand Forecasting Engine</td>
-            <td>
-              Uses statistical time series models and machine learning models to generate
-              SKU, store, warehouse, region, and category-level forecasts with confidence ranges.
-            </td>
-            <td>
-              Helps teams plan ahead instead of reacting after stock problems appear.
-              <br><span class="badge purple">Predictive planning</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Replenishment Optimizer</td>
-            <td>
-              Applies reinforcement learning-based planning for multi-echelon inventory
-              networks, including suppliers, warehouses, distribution centers, and stores.
-            </td>
-            <td>
-              Recommends what to order, how much to order, when to order, and where to place stock.
-              <br><span class="badge orange">MEIO planning</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Simulation Studio</td>
-            <td>
-              Tests what-if scenarios for demand changes, supplier delays, lead-time shifts,
-              safety stock adjustments, promotions, warehouse shortages, transfers, and new locations.
-            </td>
-            <td>
-              Makes risk visible before teams commit inventory, capital, or operational effort.
-              <br><span class="badge green">Risk lens</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Agentic AI Layer</td>
-            <td>
-              Uses AI agents to monitor exceptions, explain forecasts, recommend replenishment
-              actions, answer natural language questions, generate summaries, and support approvals.
-            </td>
-            <td>
-              Converts planning signals into guided, explainable, and partially automated workflows.
-              <br><span class="badge purple">AI assistance</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Tenant and Governance Layer</td>
-            <td>
-              Supports tenant-based data isolation, role-based access, configurable workflows,
-              audit logs, API-first integration, secure processing, and scalable compute jobs.
-            </td>
-            <td>
-              Provides the SaaS foundation needed for multiple business customers on one platform.
-              <br><span class="badge blue">SaaS control</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <h2>What users can ask the AI agents</h2>
-        <p>
-          The agentic layer helps planners, buyers, inventory teams, and business leaders
-          ask operational questions in plain English and receive context-aware answers.
-        </p>
-      </div>
-
-      <div class="grid two">
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">⚠️</div>
-          <h3>Inventory Risk Questions</h3>
+    <section class="section soft" id="outcomes">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Business outcomes</div>
+          <h2>Designed for mid-market inventory complexity</h2>
           <p>
-            “Which SKUs are at risk of stockout next week?” “Which locations have excess
-            inventory?” “Which items need urgent replenishment?”
+            MetaFlow helps multi-location businesses move from manual and reactive inventory
+            planning to connected, predictive, and AI-assisted operations.
           </p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">🔍</div>
-          <h3>Forecast Explanation</h3>
-          <p>
-            “Why did the forecast increase for this product?” “Which sales patterns changed?”
-            “Was the change caused by promotion, seasonality, or recent demand?”
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">🚚</div>
-          <h3>Replenishment Guidance</h3>
-          <p>
-            “What should we reorder this week?” “Which warehouses should supply which stores?”
-            “How much inventory should be placed at each node?”
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">🧭</div>
-          <h3>Scenario Analysis</h3>
-          <p>
-            “What happens if supplier lead time increases?” “What if demand rises by 20%?”
-            “What if we reduce safety stock for slow-moving items?”
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <h2>Built for multi-tenant SaaS</h2>
-        <p>
-          MetaFlow is designed as a secure, scalable platform where each customer receives
-          a protected workspace while sharing a common cloud-native product foundation.
-        </p>
-      </div>
-
-      <div class="grid three">
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">🔐</div>
-          <h3>Secure Tenant Workspaces</h3>
-          <p>
-            Tenant-based data isolation, role-based access control, user management,
-            audit logs, and secure data processing protect customer data and workflows.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">🧩</div>
-          <h3>Integration-Ready Architecture</h3>
-          <p>
-            API-first integration, plugin-friendly extensibility, and configurable workflows
-            make it easier to connect POS, ERP, planning, warehouse, and analytics systems.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-icon" aria-hidden="true">⚙️</div>
-          <h3>Scalable Planning Jobs</h3>
-          <p>
-            Cloud-native forecasting, optimization, simulation, and AI agent workflows are
-            designed to scale as customers, SKUs, locations, and planning complexity grow.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <h2>Business outcomes</h2>
-        <p>
-          The platform helps teams move from disconnected, manual, reactive planning toward
-          connected, predictive, and AI-assisted inventory operations.
-        </p>
-      </div>
-
-      <div class="outcome-strip" aria-label="Business outcomes">
-        <div class="outcome">
-          <strong>Better visibility</strong>
-          <span>Understand stock, movement, locations, suppliers, and exceptions in one place.</span>
         </div>
 
-        <div class="outcome">
-          <strong>Lower risk</strong>
-          <span>Reduce stockout and overstock exposure through forecasting, planning, and simulation.</span>
-        </div>
-
-        <div class="outcome">
-          <strong>Smarter decisions</strong>
-          <span>Use demand, inventory, supplier, and service-level signals to guide replenishment.</span>
-        </div>
-
-        <div class="outcome">
-          <strong>Less manual work</strong>
-          <span>Let AI agents monitor exceptions, summarize issues, and recommend next actions.</span>
+        <div class="outcomes">
+          <div class="outcome">
+            <strong>Better visibility</strong>
+            <span>Understand stock, movement, locations, suppliers, and exceptions in one place.</span>
+          </div>
+          <div class="outcome">
+            <strong>Lower stockout risk</strong>
+            <span>Use forecasts, replenishment recommendations, and alerts to act earlier.</span>
+          </div>
+          <div class="outcome">
+            <strong>Lower overstock risk</strong>
+            <span>Balance service levels, inventory cost, lead time, and demand uncertainty.</span>
+          </div>
+          <div class="outcome">
+            <strong>Less manual work</strong>
+            <span>Let AI agents monitor issues, summarize changes, and recommend next actions.</span>
+          </div>
         </div>
       </div>
     </section>
-    <!--
-    <section>
-      <div class="position-box">
-        <strong>Platform summary:</strong>
-        MetaFlow connects inventory management, POS data, demand forecasting,
-        reinforcement learning-based replenishment planning, simulation, and agentic AI
-        automation into one intelligent SaaS platform. It helps businesses understand what
-        they have, predict what customers will need, decide what to replenish, test risk,
-        and automate planning workflows with explainable AI assistance.
-      </div>
-    </section>
-    -->
   </main>
 
-  <footer>
-    <div>
-      <strong>MetaFlow</strong><br />
-      Inventory Intelligence Platform
-    </div>
-
-    <div>
-      Copyright &copy; 2026 MetaFlow. All rights reserved.
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <strong>MetaFlow</strong><br />
+        Inventory Intelligence Platform
+      </div>
+      <div>
+        Copyright &copy; 2026 MetaFlow. All rights reserved.
+      </div>
     </div>
   </footer>
 </body>
