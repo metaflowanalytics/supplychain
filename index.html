@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="MetaFlow is a multi-tenant SaaS platform for inventory management, POS integration, demand forecasting, replenishment planning, simulation, and AI agent automation."
+    content="MetaFlow turns the files a retailer already exports into one explained replenishment plan for the whole network, daily or weekly: what to buy, what to move, how much and why. Planners decide every line and place orders in their own system."
   />
-  <title>MetaFlow | Inventory Intelligence Platform</title>
+  <title>MetaFlow | Intelligent Replenishment Planning</title>
 
   <style>
     :root {
@@ -20,6 +20,10 @@
       --surface: #ffffff;
       --surface-soft: #f8fafc;
       --footer: #0f172a;
+      --ok: #1f7a4d;
+      --ok-soft: #ecf8f1;
+      --warn: #9a5b00;
+      --warn-soft: #fff6e6;
       --shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
       --radius: 18px;
       --max-width: 1180px;
@@ -135,8 +139,7 @@
 
     .hero {
       padding: 92px 0 80px;
-      background:
-        linear-gradient(180deg, #ffffff 0%, #f9fcff 100%);
+      background: linear-gradient(180deg, #ffffff 0%, #f9fcff 100%);
     }
 
     .hero-grid {
@@ -180,7 +183,33 @@
       color: var(--muted);
       font-size: 18px;
       line-height: 1.75;
-      margin-bottom: 0;
+      margin-bottom: 26px;
+    }
+
+    .hero-points {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .hero-points li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .hero-points li::before {
+      content: "";
+      flex: 0 0 8px;
+      height: 8px;
+      margin-top: 8px;
+      border-radius: 50%;
+      background: var(--primary);
     }
 
     .hero-panel {
@@ -299,6 +328,13 @@
       line-height: 1.4;
     }
 
+    .panel-note {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      margin: 14px 0 0;
+    }
+
     .section-header {
       max-width: 820px;
       margin-bottom: 34px;
@@ -340,7 +376,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 24px;
-      min-height: 236px;
+      min-height: 220px;
       box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
     }
 
@@ -424,7 +460,7 @@
       border-radius: 16px;
       padding: 16px;
       background: var(--surface-soft);
-      min-height: 145px;
+      min-height: 168px;
     }
 
     .workflow-step small {
@@ -441,6 +477,14 @@
       font-size: 14px;
       line-height: 1.45;
       font-weight: 750;
+      margin-bottom: 6px;
+    }
+
+    .workflow-step span {
+      color: var(--muted);
+      display: block;
+      font-size: 13px;
+      line-height: 1.45;
     }
 
     .outcomes {
@@ -496,6 +540,48 @@
       font-size: 15px;
     }
 
+    .stage {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 750;
+      margin-bottom: 12px;
+    }
+
+    .stage.now {
+      color: var(--ok);
+      background: var(--ok-soft);
+      border: 1px solid #c7ead6;
+    }
+
+    .stage.next {
+      color: var(--primary-dark);
+      background: var(--primary-soft);
+      border: 1px solid #cde7ff;
+    }
+
+    .stage.later {
+      color: var(--warn);
+      background: var(--warn-soft);
+      border: 1px solid #f3dcb2;
+    }
+
+    .status-box {
+      margin-top: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .status-box strong {
+      color: var(--text);
+    }
+
     .site-footer {
       background: var(--footer);
       color: #cbd5e1;
@@ -512,6 +598,12 @@
       flex-wrap: wrap;
       font-size: 14px;
       line-height: 1.5;
+    }
+
+    .footer-note {
+      max-width: 640px;
+      color: #94a3b8;
+      font-size: 13px;
     }
 
     .site-footer strong {
@@ -565,7 +657,7 @@
       .container,
       .header-inner,
       .footer-inner {
-        width: min(100% - 28px, var(--max-width));
+        width: min(100% - 32px, var(--max-width));
       }
 
       .feature-grid,
@@ -575,6 +667,10 @@
       .agent-questions,
       .metric-grid {
         grid-template-columns: 1fr;
+      }
+
+      .workflow-step {
+        min-height: 0;
       }
 
       h1 {
@@ -602,16 +698,17 @@
         <span class="brand-mark" aria-hidden="true">M</span>
         <span>
           <span class="brand-name">MetaFlow</span>
-          <span class="brand-subtitle">Inventory Intelligence Platform</span>
+          <span class="brand-subtitle">Intelligent Replenishment Planning</span>
         </span>
       </a>
 
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#capabilities">Capabilities</a>
-        <a href="#modules">Modules</a>
-        <a href="#workflow">Workflow</a>
-        <a href="#agents">AI Agents</a>
-        <a href="#outcomes">Outcomes</a>
+        <a href="#problem">Problem</a>
+        <a href="#workflow">How it works</a>
+        <a href="#product">Product</a>
+        <a href="#explain">Explanations</a>
+        <a href="#trust">Trust</a>
+        <a href="#roadmap">Roadmap</a>
       </nav>
     </div>
   </header>
@@ -620,45 +717,53 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">Inventory management, forecasting, replenishment, simulation, and AI agents</div>
+          <div class="eyebrow">For multi-location retailers and distributors</div>
 
           <h1 id="hero-title">
-            Inventory Intelligence Platform
-            <span>for smarter planning and replenishment</span>
+            Replenishment plans
+            <span>your planners can trust</span>
           </h1>
 
           <p class="hero-copy">
-            MetaFlow brings inventory operations, POS demand signals, machine learning forecasts,
-            multi-node replenishment planning, what-if simulation, and agentic AI into one clean
-            multi-tenant SaaS platform.
+            MetaFlow reads the files a business already exports from its ERP and point-of-sale systems,
+            forecasts demand for every product at every store, and recommends what to buy from suppliers
+            and what to move from distribution centers to stores. Every line comes with the reason behind it,
+            and the planner makes the call.
           </p>
+
+          <ul class="hero-points">
+            <li>No re-platform: it sits next to the systems you already run</li>
+            <li>Daily or weekly, on your rhythm, and re-planned when fresh stock or orders arrive</li>
+            <li>Data in two ways: drop CSV exports, or let your systems copy them to S3 or Azure</li>
+            <li>Advice, not autopilot: nothing is ordered without a person</li>
+          </ul>
         </div>
 
-        <aside class="hero-panel" aria-label="Inventory intelligence summary">
+        <aside class="hero-panel" aria-label="Current plan, illustrative">
           <div class="panel-header">
             <div>
-              <div class="panel-title">Inventory intelligence view</div>
-              <div class="panel-subtitle">Live stock context with planning signals</div>
+              <div class="panel-title">Current plan</div>
+              <div class="panel-subtitle">Suppliers → distribution centers → stores · daily or weekly</div>
             </div>
-            <div class="pill">Connected</div>
+            <div class="pill">Demo data</div>
           </div>
 
-          <div class="metric-grid" aria-label="Illustrative planning metrics">
+          <div class="metric-grid" aria-label="How MetaFlow works, in numbers">
             <div class="metric">
-              <strong>2,840</strong>
-              <span>active SKUs monitored</span>
+              <strong>1 plan</strong>
+              <span>for the whole network, not one location at a time</span>
             </div>
             <div class="metric">
-              <strong>36</strong>
-              <span>locations connected</span>
+              <strong>2 ways in</strong>
+              <span>file upload, or Amazon S3 / Azure Blob checked hourly</span>
             </div>
             <div class="metric">
-              <strong>18%</strong>
-              <span>stockout risk reduction target</span>
+              <strong>Every line</strong>
+              <span>explained: forecast, stock, limits and the reason</span>
             </div>
             <div class="metric">
-              <strong>24h</strong>
-              <span>latest POS demand refresh</span>
+              <strong>0 orders</strong>
+              <span>placed automatically; planners decide each line</span>
             </div>
           </div>
 
@@ -666,171 +771,92 @@
             <div class="signal-item">
               <div class="signal-icon" aria-hidden="true">01</div>
               <div>
-                <strong>Stock visibility</strong>
-                <span>Products, locations, suppliers, stock movements, orders, batches, and serials.</span>
+                <strong>Needs attention first</strong>
+                <span>Starting shortages, lines cut by a limit, and lines that changed since the last review.</span>
               </div>
             </div>
 
             <div class="signal-item">
               <div class="signal-icon" aria-hidden="true">02</div>
               <div>
-                <strong>Forecast signal</strong>
-                <span>POS sales, returns, promotions, seasonality, and store-level demand patterns.</span>
+                <strong>Keep, change or skip</strong>
+                <span>The planner decides each line with a reason. MetaFlow checks the change still fits the limits.</span>
               </div>
             </div>
 
             <div class="signal-item">
               <div class="signal-icon" aria-hidden="true">03</div>
               <div>
-                <strong>Replenishment guidance</strong>
-                <span>Recommended order quantity, timing, and placement across inventory nodes.</span>
+                <strong>One order file per supplier</strong>
+                <span>Download and place it in your own system. MetaFlow never sends orders or writes back.</span>
               </div>
             </div>
           </div>
+
+          <p class="panel-note">Illustration of the product's plan screen. All data shown in MetaFlow demos is synthetic.</p>
         </aside>
       </div>
     </section>
 
-    <section class="section soft" id="capabilities">
+    <section class="section soft" id="problem">
       <div class="container">
         <div class="section-header">
-          <div class="section-kicker">Core capabilities</div>
-          <h2>Built on practical inventory workflows</h2>
+          <div class="section-kicker">The problem</div>
+          <h2>Networks are still planned in spreadsheets</h2>
           <p>
-            The platform starts with the simple questions every inventory team asks: what exists,
-            where it is, what is changing, what customers may need next, and what action should be taken.
+            Retailers and distributors with a few warehouses and many stores decide every day or every week what to buy
+            and where to send it. Most still do it with static min/max rules and spreadsheets. The cost shows
+            up twice: lost sales where stock ran out, and cash tied up where it sits unsold.
           </p>
         </div>
 
         <div class="feature-grid">
           <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">P</div>
-            <h3>Organize Products</h3>
+            <div class="feature-icon" aria-hidden="true">1</div>
+            <h3>Rules go stale</h3>
             <p>
-              Maintain a clean catalog of products, SKUs, categories, suppliers, manufacturers,
-              barcodes, labels, batches, serial numbers, and bill-of-material records.
+              Min/max levels set once a year ignore seasonality, promotions and the supplier who just
+              slipped two weeks.
             </p>
           </article>
 
           <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">S</div>
-            <h3>Know Stock Instantly</h3>
+            <div class="feature-icon" aria-hidden="true">2</div>
+            <h3>Stockouts hide demand</h3>
             <p>
-              View available stock by item, location, warehouse, store, supplier, movement history,
-              purchase orders, sales orders, and audit events.
+              When the shelf is empty, sales read as zero. Next month's forecast drops, and the stockout
+              repeats.
             </p>
           </article>
 
           <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">D</div>
-            <h3>Forecast Demand</h3>
+            <div class="feature-icon" aria-hidden="true">3</div>
+            <h3>Locations planned alone</h3>
             <p>
-              Use time series and machine learning models to forecast demand by SKU, store,
-              warehouse, region, or category with confidence ranges and anomaly detection.
+              Distribution centers and stores compete for the same stock with no view of the whole network.
             </p>
           </article>
 
           <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">R</div>
-            <h3>Plan Replenishment</h3>
+            <div class="feature-icon" aria-hidden="true">4</div>
+            <h3>Suites mean a re-platform</h3>
             <p>
-              Generate replenishment recommendations across suppliers, warehouses,
-              distribution centers, and stores using multi-node optimization logic.
+              Enterprise planning suites take months to roll out, cost six to seven figures and assume one ERP.
+              Most teams' data lives in several systems.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="modules">
+    <section class="section" id="workflow">
       <div class="container">
         <div class="section-header">
-          <div class="section-kicker">Platform modules</div>
-          <h2>Inventory operations and planning in one place</h2>
+          <div class="section-kicker">How it works</div>
+          <h2>From your exports to a decided plan</h2>
           <p>
-            MetaFlow combines operational inventory control with demand intelligence,
-            replenishment optimization, risk analysis, and AI-assisted workflows.
-          </p>
-        </div>
-
-        <div class="module-grid">
-          <article class="module-card">
-            <h3>Inventory Control Hub</h3>
-            <p>Creates a trusted view of products, suppliers, locations, stock, orders, and movements.</p>
-            <ul class="module-list">
-              <li>Product and SKU catalog</li>
-              <li>Supplier and manufacturer records</li>
-              <li>Purchase and sales order context</li>
-              <li>Barcode, batch, serial, and label support</li>
-            </ul>
-          </article>
-
-          <article class="module-card">
-            <h3>POS Data Layer</h3>
-            <p>Connects sales activity to planning signals so demand is based on real customer movement.</p>
-            <ul class="module-list">
-              <li>Daily sales and returns</li>
-              <li>Store-level movement</li>
-              <li>Promotions and seasonal patterns</li>
-              <li>Stockout and fast-mover signals</li>
-            </ul>
-          </article>
-
-          <article class="module-card">
-            <h3>Demand Forecasting Engine</h3>
-            <p>Predicts future demand using statistical and machine learning forecasting methods.</p>
-            <ul class="module-list">
-              <li>SKU, store, warehouse, and region forecasts</li>
-              <li>Short-term and long-term views</li>
-              <li>Confidence ranges</li>
-              <li>Demand anomaly detection</li>
-            </ul>
-          </article>
-
-          <article class="module-card">
-            <h3>Replenishment Optimizer</h3>
-            <p>Recommends what to order, how much to order, when to order, and where to place inventory.</p>
-            <ul class="module-list">
-              <li>Multi-echelon inventory planning</li>
-              <li>Supplier-to-warehouse planning</li>
-              <li>Warehouse-to-store replenishment</li>
-              <li>Service-level and cost trade-offs</li>
-            </ul>
-          </article>
-
-          <article class="module-card">
-            <h3>Simulation Studio</h3>
-            <p>Tests operational risk before teams commit inventory, capital, or supplier actions.</p>
-            <ul class="module-list">
-              <li>Demand spike scenarios</li>
-              <li>Supplier delay scenarios</li>
-              <li>Lead-time and safety stock changes</li>
-              <li>Store, warehouse, and transfer decisions</li>
-            </ul>
-          </article>
-
-          <article class="module-card">
-            <h3>Agentic AI Layer</h3>
-            <p>Uses AI agents to explain changes, monitor exceptions, summarize risks, and guide actions.</p>
-            <ul class="module-list">
-              <li>Inventory risk detection</li>
-              <li>Forecast explanation</li>
-              <li>Replenishment recommendations</li>
-              <li>Planning summaries and workflow support</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section soft" id="workflow">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-kicker">Operating flow</div>
-          <h2>A clean path from data to decision</h2>
-          <p>
-            Each step is designed to be understandable for inventory teams, demand planners,
-            replenishment buyers, warehouse operators, and business leaders.
+            Getting data in is the hardest part of planning software, so MetaFlow starts from the files
+            teams already produce. No connector project, no new system of record.
           </p>
         </div>
 
@@ -838,93 +864,235 @@
           <div class="workflow-grid">
             <div class="workflow-step">
               <small>01</small>
-              <strong>Connect product, inventory, supplier, order, warehouse, and POS data</strong>
+              <strong>Drop your exports</strong>
+              <span>Stock, open orders, sales and products as CSV files, uploaded or copied to S3 or Azure.</span>
             </div>
             <div class="workflow-step">
               <small>02</small>
-              <strong>Create live stock visibility across items, locations, and movements</strong>
+              <strong>Checked before loading</strong>
+              <span>Every row is validated with a fix for each issue. Files that look different from last time are flagged in one plain sentence.</span>
             </div>
             <div class="workflow-step">
               <small>03</small>
-              <strong>Forecast demand using time series and machine learning models</strong>
+              <strong>Forecast every store</strong>
+              <span>Statistical methods and a machine-learning model compete on past data; the best one per item wins.</span>
             </div>
             <div class="workflow-step">
               <small>04</small>
-              <strong>Optimize replenishment across stores, warehouses, and suppliers</strong>
+              <strong>Plan the whole network</strong>
+              <span>Supplier purchases and store transfers together, within case packs, minimums, storage and budgets.</span>
             </div>
             <div class="workflow-step">
               <small>05</small>
-              <strong>Run simulations to measure demand, supply, and lead-time risk</strong>
+              <strong>The planner decides</strong>
+              <span>Review what needs attention, try a what-if, keep, change or skip each line, download order files.</span>
             </div>
             <div class="workflow-step">
               <small>06</small>
-              <strong>Use AI agents to explain results, monitor exceptions, and recommend actions</strong>
+              <strong>Learn from actuals</strong>
+              <span>A results page compares forecasts and plans with what really sold, cycle after cycle.</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="agents">
+    <section class="section soft" id="product">
       <div class="container">
         <div class="section-header">
-          <div class="section-kicker">AI agent examples</div>
-          <h2>Plain-English planning support</h2>
+          <div class="section-kicker">The product today</div>
+          <h2>A small product that does the planning job end to end</h2>
           <p>
-            The agentic layer helps users ask operational questions without digging through
-            reports, exports, and planning spreadsheets.
+            MetaFlow is deliberately lean: a few screens a planner uses every day, built on a careful planning
+            engine and a multi-tenant SaaS foundation.
+          </p>
+        </div>
+
+        <div class="module-grid">
+          <article class="module-card">
+            <h3>Data</h3>
+            <p>Bring in what you already export, and confirm how MetaFlow reads it once.</p>
+            <ul class="module-list">
+              <li>CSV / Excel upload, or files copied to Amazon S3 or Azure Blob</li>
+              <li>Templates with sample data and plain definitions for every dataset</li>
+              <li>Row-by-row checks with a fix for each issue</li>
+              <li>One "Refresh and plan" button</li>
+            </ul>
+          </article>
+
+          <article class="module-card">
+            <h3>Demand forecast</h3>
+            <p>Demand for every carried product at every store, from the register, not the warehouse.</p>
+            <ul class="module-list">
+              <li>Statistical methods and LightGBM compete per item</li>
+              <li>Stockout periods treated as a floor, not as zero demand</li>
+              <li>Promotion periods kept out of the baseline</li>
+              <li>Bring your own forecast, or adjust any day or week and re-plan</li>
+            </ul>
+          </article>
+
+          <article class="module-card">
+            <h3>Replenishment recommendations</h3>
+            <p>One coordinated plan of purchases and transfers, with order-by dates, daily or weekly.</p>
+            <ul class="module-list">
+              <li>Distribution center and store targets set together</li>
+              <li>Fair-share allocation when stock runs short</li>
+              <li>Case packs, minimums, storage, routes, calendars and budgets</li>
+              <li>Re-plans when fresh stock or open orders arrive</li>
+            </ul>
+          </article>
+
+          <article class="module-card">
+            <h3>Decide and act</h3>
+            <p>The planner stays in charge of every order.</p>
+            <ul class="module-list">
+              <li>Needs-attention panel, including what changed since review</li>
+              <li>Keep, change or skip each line with a reason</li>
+              <li>Stock projection and what-ifs for demand, lead time, budget and service level</li>
+              <li>Per-supplier order files and a downloadable report</li>
+            </ul>
+          </article>
+
+          <article class="module-card">
+            <h3>Results</h3>
+            <p>An honest scorecard built from forecasts saved before the actuals came in.</p>
+            <ul class="module-list">
+              <li>Forecast accuracy, by source and after planner adjustments</li>
+              <li>How often actual demand fell inside the forecast range</li>
+              <li>Fill rate and inventory value</li>
+              <li>What planners changed, over the last 13 weeks</li>
+            </ul>
+          </article>
+
+          <article class="module-card">
+            <h3>Planning setup and workspace</h3>
+            <p>Business rules in one place, set by people who know the business.</p>
+            <ul class="module-list">
+              <li>Network, service targets, routes, capacities and costs</li>
+              <li>Weekly or daily planning rhythm</li>
+              <li>Owners, admins, planners and viewers</li>
+              <li>Every setting versioned and every change audited</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="explain">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Explanations, not a black box</div>
+          <h2>Every line answers the planner's questions</h2>
+          <p>
+            Planners don't trust numbers they can't check. MetaFlow shows the math and the reason behind each
+            recommendation, from the data the customer provided.
           </p>
         </div>
 
         <div class="agent-questions">
           <div class="question-card">
-            <strong>Inventory risk</strong>
-            Which SKUs are at risk of stockout next week, and which locations need attention?
+            <strong>Why this quantity?</strong>
+            The forecast over the lead time, stock on hand and on order, the service target, and the
+            case-pack rounding that produced the number.
           </div>
           <div class="question-card">
-            <strong>Forecast explanation</strong>
-            Why did the forecast increase for this product, and which demand signals changed?
+            <strong>Why was this line cut?</strong>
+            The specific limit that bound it: warehouse storage, a supplier minimum, a closed ordering day,
+            a budget or a route that isn't allowed.
           </div>
           <div class="question-card">
-            <strong>Replenishment guidance</strong>
-            What should be reordered this week, and how much should be placed at each node?
+            <strong>What changed since I last looked?</strong>
+            Lines that moved after fresh stock or open orders were loaded are tagged, and decisions on
+            unchanged lines carry over.
           </div>
           <div class="question-card">
-            <strong>Scenario analysis</strong>
-            What happens if supplier lead time increases or demand rises by twenty percent?
+            <strong>What if things go wrong?</strong>
+            A stock projection for the plan, plus what-ifs: demand up 20%, a supplier two weeks late,
+            a tighter budget, a different service target.
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section soft" id="outcomes">
+    <section class="section soft" id="trust">
       <div class="container">
         <div class="section-header">
-          <div class="section-kicker">Business outcomes</div>
-          <h2>Designed for mid-market inventory complexity</h2>
+          <div class="section-kicker">Built for an IT review</div>
+          <h2>Safe to put next to the system of record</h2>
           <p>
-            MetaFlow helps multi-location businesses move from manual and reactive inventory
-            planning to connected, predictive, and AI-assisted operations.
+            MetaFlow is a planning layer, not another system to keep in sync. It reads files and recommends;
+            the customer's ERP stays in charge of transactions.
           </p>
         </div>
 
         <div class="outcomes">
           <div class="outcome">
-            <strong>Better visibility</strong>
-            <span>Understand stock, movement, locations, suppliers, and exceptions in one place.</span>
+            <strong>Read-only by design</strong>
+            <span>Read-only storage credentials, encrypted at rest. MetaFlow never changes customer files or writes back.</span>
           </div>
           <div class="outcome">
-            <strong>Lower stockout risk</strong>
-            <span>Use forecasts, replenishment recommendations, and alerts to act earlier.</span>
+            <strong>Multi-tenant from day one</strong>
+            <span>Every query is scoped to the customer's workspace, with automated tests on isolation.</span>
           </div>
           <div class="outcome">
-            <strong>Lower overstock risk</strong>
-            <span>Balance service levels, inventory cost, lead time, and demand uncertainty.</span>
+            <strong>Roles and audit</strong>
+            <span>Role-based access, invitations limited to company domains, and a full audit log of who did what.</span>
           </div>
           <div class="outcome">
-            <strong>Less manual work</strong>
-            <span>Let AI agents monitor issues, summarize changes, and recommend next actions.</span>
+            <strong>Humans decide</strong>
+            <span>No automatic orders, reservations or approvals. Every decision is recorded with its reason.</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Where we are and where we're going</div>
+          <h2>Start narrow, earn trust, then widen</h2>
+          <p>
+            The long-term goal is the planning layer that sits on top of any inventory network and does more
+            of the routine work as it proves itself on real data.
+          </p>
+        </div>
+
+        <div class="module-grid">
+          <article class="module-card">
+            <span class="stage now">Now</span>
+            <h3>Working product, daily or weekly</h3>
+            <ul class="module-list">
+              <li>Complete flow from files to forecast, plan, decisions and order files</li>
+              <li>Nonperishable retail: suppliers, 1–2 distribution centers, up to 10 stores</li>
+              <li>A full 50-product planning journey verified end to end on synthetic data</li>
+            </ul>
+          </article>
+
+          <article class="module-card">
+            <span class="stage next">Next</span>
+            <h3>Pilots on real data</h3>
+            <ul class="module-list">
+              <li>Eight-week pilots on a customer's own history for one region or banner</li>
+              <li>Larger catalogues and more stores, validated step by step</li>
+              <li>Supplier lead-time tracking from real receipts</li>
+            </ul>
+          </article>
+
+          <article class="module-card">
+            <span class="stage later">Later</span>
+            <h3>More of the planning loop</h3>
+            <ul class="module-list">
+              <li>A rhythm set per product and location, not one for the whole network</li>
+              <li>More network shapes and industries, as evidence supports them</li>
+              <li>A grounded assistant that answers questions about the plan</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="status-box">
+          <strong>Status, October 2026.</strong> MetaFlow is pre-launch and pre-revenue. The product runs end to end,
+          but every result so far comes from synthetic demo data, so we make no claims yet about savings or service
+          levels on real customers. The next milestone is the first pilot on a customer's own data.
         </div>
       </div>
     </section>
@@ -934,9 +1102,11 @@
     <div class="footer-inner">
       <div>
         <strong>MetaFlow</strong><br />
-        Inventory Intelligence Platform
+        Intelligent replenishment planning for multi-location retailers and distributors
       </div>
-      <div>
+      <div class="footer-note">
+        Illustrations use synthetic demo data. MetaFlow makes recommendations only; customers place and manage
+        orders in their own systems.<br />
         Copyright &copy; 2026 MetaFlow. All rights reserved.
       </div>
     </div>
