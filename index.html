@@ -241,18 +241,11 @@
     .pillar li + li { margin-top: 8px; }
     .pillar li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 10px; height: 1.5px; background: var(--orange); }
 
-    /* Is not */
+    /* Works with your systems */
     .nots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 56px; }
 
-    .not h3 {
-      display: inline;
-      font-size: clamp(28px, 2.9vw, 40px);
-      line-height: 1.15;
-      color: var(--muted);
-      text-decoration: line-through;
-      text-decoration-color: var(--orange);
-      text-decoration-thickness: 2px;
-    }
+    .not { padding-top: 22px; border-top: 2px solid var(--orange); }
+    .not h3 { font-size: clamp(28px, 2.9vw, 38px); line-height: 1.12; }
 
     .not p { margin-top: 12px; color: var(--muted); font-size: 16px; }
     .stay { margin-top: 44px; font-size: 19px; max-width: 640px; }
@@ -329,7 +322,7 @@
         <a href="#idea">The idea</a>
         <a href="#week">Your week</a>
         <a href="#platform">Platform</a>
-        <a href="#scope">What it is not</a>
+        <a href="#scope">Works with your systems</a>
       </nav>
       <a class="btn small" href="#demo">Book a demo</a>
     </div>
@@ -442,12 +435,13 @@
         <h2 class="serif" id="vision-title">The <em>least total stock</em> that meets your service targets, on the network you already have.</h2>
         <p class="intro">
           MetaFlow IQ treats your supply chain as one network of places and the links between them, and plans
-          all of it together. That is multi-echelon inventory optimization, delivered as a service.
+          all of it together. That is multi-echelon inventory optimization (MEIO), delivered as a service.
         </p>
         <ul class="facts">
-          <li>For companies with $100 million to $1 billion in revenue</li>
+          <li>Mid-size and large companies</li>
+          <li>Tens of thousands of SKUs</li>
+          <li>Many distribution centers, warehouses and stores</li>
           <li>Retail and consumer goods</li>
-          <li>Distribution centers, warehouses and stores</li>
         </ul>
       </div>
     </section>
@@ -538,23 +532,24 @@
 
     <section class="band" id="scope" aria-labelledby="scope-title">
       <div class="wrap">
-        <p class="label">What it is not</p>
-        <h2 class="serif" id="scope-title">MetaFlow IQ plans replenishment. Nothing else.</h2>
+        <p class="label">Works with what you have</p>
+        <h2 class="serif" id="scope-title">One job, done well: the plan for your <em>whole network.</em></h2>
+        <p class="intro">MetaFlow IQ works beside the systems you already run. They keep doing what they do best, and MetaFlow IQ adds the one thing they don't.</p>
         <div class="nots">
           <div class="not">
-            <h3 class="serif">Inventory management</h3>
-            <p>Stock counts, adjustments, bins and lots.</p>
+            <h3 class="serif">Your inventory system</h3>
+            <p>Keeps your stock counts, bins and lots. MetaFlow IQ reads its stock and plans from it.</p>
           </div>
           <div class="not">
-            <h3 class="serif">Order management</h3>
-            <p>Order status, receiving and invoices.</p>
+            <h3 class="serif">Your order system</h3>
+            <p>Places and tracks every order. MetaFlow IQ hands it the orders you have signed off.</p>
           </div>
           <div class="not">
-            <h3 class="serif">Transportation management</h3>
-            <p>Carriers, loads, routing and tracking.</p>
+            <h3 class="serif">Your transport system</h3>
+            <p>Books the carriers and moves the freight. MetaFlow IQ decides what is worth moving, and where.</p>
           </div>
         </div>
-        <p class="stay">Those systems stay yours. MetaFlow IQ reads what they export and tells you what to buy and what to move.</p>
+        <p class="stay">Nothing to replace and nothing to re-platform. You keep your systems and gain one plan across all of them.</p>
 
         <ul class="trust">
           <li><strong>Read-only</strong>MetaFlow IQ reads your files and never changes them.</li>
