@@ -277,7 +277,11 @@
     .not p { margin-top: 12px; color: var(--muted); font-size: 16px; }
     .stay { margin-top: 44px; font-size: 19px; max-width: 640px; }
 
+    .how { margin-top: 16px; max-width: 640px; font-size: 19px; font-weight: 600; }
+
     /* Trust */
+    .trust-label { margin-top: 72px; }
+    .trust-label + .trust { margin-top: 20px; }
     .trust { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 56px; }
     .trust li { padding-top: 18px; border-top: 2px solid var(--ink); font-size: 16.5px; color: var(--muted); }
     .trust strong { display: block; margin-bottom: 6px; font-size: 18px; color: var(--ink); }
@@ -481,7 +485,7 @@
 
     <section class="band" id="week" aria-labelledby="week-title">
       <div class="wrap">
-        <p class="label">Your week with MetaFlow IQ</p>
+        <p class="label">The workflow</p>
         <h2 class="serif" id="week-title">Built for planners who want the full picture.</h2>
         <ol class="week">
           <li>
@@ -590,9 +594,10 @@
 
     <section class="band" id="scope" aria-labelledby="scope-title">
       <div class="wrap">
-        <p class="label">Works with what you have</p>
+        <p class="label">Integration</p>
         <h2 class="serif" id="scope-title">Keep your systems. <em>Add one plan.</em></h2>
         <p class="intro">MetaFlow IQ works beside the systems you already run. They keep doing what they do best, and MetaFlow IQ adds the one thing they don't.</p>
+        <p class="how">Files in by upload or cloud folder. Signed-off orders out to your ERP. No integration project.</p>
         <div class="nots">
           <div class="not">
             <h3 class="serif">Your inventory system</h3>
@@ -609,6 +614,7 @@
         </div>
         <p class="stay">Nothing to replace and nothing to re-platform.</p>
 
+        <p class="label trust-label">Trust and control</p>
         <ul class="trust">
           <li><strong>Your data stays yours</strong>MetaFlow IQ reads your data and never changes it. The only thing it writes is the orders you sign off.</li>
           <li><strong>Kept apart</strong>Each business's data is stored separately from every other.</li>
