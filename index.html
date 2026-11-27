@@ -244,6 +244,8 @@
     .week .num { font-family: var(--serif); font-size: 48px; line-height: 1; color: var(--orange); }
     .week h3 { font-size: 24px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; }
     .week p { color: var(--muted); font-size: 17px; }
+    .week .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .week .tabs span { padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); font-size: 14.5px; font-weight: 500; color: var(--ink); }
 
     /* Pillars */
     .pillars { display: grid; grid-template-columns: 1fr 1fr; margin-top: 56px; border-top: 1px solid var(--ink); }
@@ -283,12 +285,6 @@
     .msg.bot { justify-self: start; background: var(--paper); border: 1px solid var(--line); border-bottom-left-radius: 4px; }
     .msg .src { margin-top: 8px; font-size: 13.5px; color: var(--muted); }
     .msg .acts { margin-top: 10px; }
-
-    /* Setup */
-    .setup { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 32px; margin-top: 56px; }
-    .setup li { padding-top: 22px; border-top: 2px solid var(--orange); }
-    .setup h3 { font-size: clamp(26px, 2.6vw, 34px); line-height: 1.12; }
-    .setup p { margin-top: 10px; font-size: 16.5px; color: var(--muted); }
 
     /* Works with your systems */
     .nots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 56px; }
@@ -338,14 +334,13 @@
       .nots { gap: 28px; }
       .week li { grid-template-columns: 64px 1fr; gap: 6px 16px; }
       .week .num { font-size: 38px; grid-row: span 2; }
-      .week p { grid-column: 2; }
+      .week p, .week .body { grid-column: 2; }
       .pillars { grid-template-columns: 1fr; }
       .line { grid-template-columns: 1fr; padding: 20px; }
       .plan-head { padding: 14px 20px; }
       .acts { margin-top: 4px; }
       .pillar, .pillar:nth-child(even) { padding: 30px 0; border-left: 0; }
       .trust { grid-template-columns: 1fr 1fr; }
-      .setup { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 640px) {
@@ -358,7 +353,6 @@
       .net { margin-top: 44px; }
       .net text { display: none; }
       .trust { grid-template-columns: 1fr; }
-      .setup { grid-template-columns: 1fr; }
       .closing { padding: 88px 0; }
     }
 
@@ -526,7 +520,10 @@
           <li>
             <span class="num" aria-hidden="true">02</span>
             <h3>Set up your business</h3>
-            <p>Answer questions about your business, once. MetaFlow IQ builds your network from your answers.</p>
+            <div class="body">
+              <p>Answer questions about your business, once. Your answers live on one Business Setup page, with six tabs:</p>
+              <p class="tabs"><span>Company</span><span>Network</span><span>Suppliers</span><span>Goals and limits</span><span>Forecast</span><span>Data sources</span></p>
+            </div>
           </li>
           <li>
             <span class="num" aria-hidden="true">03</span>
@@ -649,22 +646,6 @@
             </ul>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="band" id="setup" aria-labelledby="setup-title">
-      <div class="wrap">
-        <p class="label">Business Setup</p>
-        <h2 class="serif" id="setup-title">Your whole business, <em>on one page.</em></h2>
-        <p class="intro">Business Setup is where you describe your business to MetaFlow IQ. It has six tabs, each named after something a planner already knows.</p>
-        <ul class="setup">
-          <li><h3 class="serif">Company</h3><p>Your currency, time zone, the day your week starts and when the plan should be ready.</p></li>
-          <li><h3 class="serif">Network</h3><p>Your stores and warehouses, and which one supplies which.</p></li>
-          <li><h3 class="serif">Suppliers</h3><p>Lead times, pack sizes, order minimums and ordering days.</p></li>
-          <li><h3 class="serif">Goals and limits</h3><p>Your service goals, budgets and storage limits.</p></li>
-          <li><h3 class="serif">Forecast</h3><p>MetaFlow IQ's forecast or your own, with promotions, holidays and events.</p></li>
-          <li><h3 class="serif">Data sources</h3><p>The files MetaFlow IQ needs, and how each one arrives.</p></li>
-        </ul>
       </div>
     </section>
 
