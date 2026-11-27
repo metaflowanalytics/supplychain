@@ -120,12 +120,15 @@
 
     .hero h1 {
       margin-top: 22px;
-      font-size: clamp(64px, 11.5vw, 150px);
+      font-size: clamp(48px, 8.6vw, 112px);
       line-height: 0.95;
       letter-spacing: -0.025em;
     }
 
     .hero h1 em { color: var(--orange); }
+    .hero h1 br.ph { display: none; }
+    @media (min-width: 641px) { .hero h1 { white-space: nowrap; } }
+    @media (max-width: 640px) { .hero h1 br.ph { display: inline; } }
 
     .hero .lead {
       max-width: 660px;
@@ -359,7 +362,7 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap">
         <p class="label">Inventory planning across your whole network</p>
-        <h1 class="serif" id="hero-title">One network.<br /><em>One plan.</em></h1>
+        <h1 class="serif" id="hero-title">One network.<br class="ph" /> <em>One plan.</em></h1>
         <p class="lead">
           MetaFlow IQ decides how much stock to hold at every warehouse and store, and what to buy and move
           between them, to meet your service targets with the least total stock.
