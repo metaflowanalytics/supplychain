@@ -284,6 +284,12 @@
     .msg .src { margin-top: 8px; font-size: 13.5px; color: var(--muted); }
     .msg .acts { margin-top: 10px; }
 
+    /* Setup */
+    .setup { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 32px; margin-top: 56px; }
+    .setup li { padding-top: 22px; border-top: 2px solid var(--orange); }
+    .setup h3 { font-size: clamp(26px, 2.6vw, 34px); line-height: 1.12; }
+    .setup p { margin-top: 10px; font-size: 16.5px; color: var(--muted); }
+
     /* Works with your systems */
     .nots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 56px; }
 
@@ -339,6 +345,7 @@
       .acts { margin-top: 4px; }
       .pillar, .pillar:nth-child(even) { padding: 30px 0; border-left: 0; }
       .trust { grid-template-columns: 1fr 1fr; }
+      .setup { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 640px) {
@@ -351,6 +358,7 @@
       .net { margin-top: 44px; }
       .net text { display: none; }
       .trust { grid-template-columns: 1fr; }
+      .setup { grid-template-columns: 1fr; }
       .closing { padding: 88px 0; }
     }
 
@@ -518,7 +526,7 @@
           <li>
             <span class="num" aria-hidden="true">02</span>
             <h3>Set up your business</h3>
-            <p>Answer a short set of questions about your business, once. MetaFlow IQ builds your network and your data templates from your answers.</p>
+            <p>Answer questions about your business, once. MetaFlow IQ builds your network from your answers.</p>
           </li>
           <li>
             <span class="num" aria-hidden="true">03</span>
@@ -644,6 +652,22 @@
       </div>
     </section>
 
+    <section class="band" id="setup" aria-labelledby="setup-title">
+      <div class="wrap">
+        <p class="label">Business Setup</p>
+        <h2 class="serif" id="setup-title">Your whole business, <em>on one page.</em></h2>
+        <p class="intro">Business Setup is where you describe your business to MetaFlow IQ. It has six tabs, each named after something a planner already knows.</p>
+        <ul class="setup">
+          <li><h3 class="serif">Company</h3><p>Your currency, time zone, the day your week starts and when the plan should be ready.</p></li>
+          <li><h3 class="serif">Network</h3><p>Your stores and warehouses, and which one supplies which.</p></li>
+          <li><h3 class="serif">Suppliers</h3><p>Lead times, pack sizes, order minimums and ordering days.</p></li>
+          <li><h3 class="serif">Goals and limits</h3><p>Your service goals, budgets and storage limits.</p></li>
+          <li><h3 class="serif">Forecast</h3><p>MetaFlow IQ's forecast or your own, with promotions, holidays and events.</p></li>
+          <li><h3 class="serif">Data sources</h3><p>The files MetaFlow IQ needs, and how each one arrives.</p></li>
+        </ul>
+      </div>
+    </section>
+
     <section class="band" id="scope" aria-labelledby="scope-title">
       <div class="wrap">
         <p class="label">Integration</p>
@@ -668,7 +692,7 @@
         <p class="label trust-label">Trust and control</p>
         <ul class="trust">
           <li><strong>Your data stays yours</strong>MetaFlow IQ reads your files and never changes them.</li>
-          <li><strong>Kept separate</strong>Each customer's data is stored apart from every other customer's.</li>
+          <li><strong>Tenant isolation</strong>MetaFlow IQ is a multi-tenant service. Each customer is a separate tenant, and your data is logically isolated from every other tenant's.</li>
           <li><strong>You sign off</strong>The only thing MetaFlow IQ writes to your systems is the orders a planner has signed off.</li>
           <li><strong>On the record</strong>Every decision is logged with who made it and why.</li>
         </ul>
@@ -681,7 +705,6 @@
         <h2 class="serif" id="demo-title">See your network in <em>one plan.</em></h2>
         <p class="intro">We'll walk you through a week on our demo business, from the files arriving to the orders, then look at how your own network would fit.</p>
         <a class="btn" href="mailto:info@metaflowiq.com?subject=MetaFlow%20IQ%20demo&amp;body=Hello%2C%0A%0AI%20would%20like%20to%20see%20a%20demo%20of%20MetaFlow%20IQ.%0A%0ACompany%3A%0ANumber%20of%20warehouses%20and%20stores%3A%0AGood%20days%20and%20times%3A%0A%0AThank%20you">Book a demo</a>
-        <p class="reply">Tell us a little about your network.</p>
         <a class="mail" href="mailto:info@metaflowiq.com">info@metaflowiq.com</a>
       </div>
     </section>
