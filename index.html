@@ -192,7 +192,7 @@
     .band h2 em { color: var(--orange); }
     @media (min-width: 901px) { #week-title { max-width: none; white-space: nowrap; font-size: clamp(40px, 4.7vw, 60px); } }
 
-    .band .intro { margin-top: 22px; max-width: 700px; font-size: 19px; color: var(--muted); text-wrap: balance; }
+    .band .intro { margin-top: 22px; max-width: none; font-size: 19px; color: var(--muted); text-wrap: balance; }
 
     /* Problem */
     .beats { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 64px; border-top: 1px solid var(--ink); }
@@ -205,7 +205,7 @@
     /* Vision */
     .vision { text-align: center; }
     .vision h2 { margin-left: auto; margin-right: auto; max-width: 1000px; font-size: clamp(40px, 6vw, 84px); }
-    .vision .intro { margin-left: auto; margin-right: auto; }
+    .vision .intro { margin-left: auto; margin-right: auto; max-width: 700px; }
 
     .facts {
       display: flex;
@@ -277,6 +277,8 @@
     .not p { margin-top: 12px; color: var(--muted); font-size: 16px; }
     .stay { margin-top: 44px; font-size: 19px; max-width: 640px; }
 
+    br.wide { display: none; }
+    @media (min-width: 901px) { br.wide { display: inline; } }
     .how { margin-top: 16px; font-size: 19px; font-weight: 600; text-wrap: balance; }
 
     /* Trust */
@@ -290,7 +292,7 @@
     .closing { text-align: center; padding: 128px 0; }
     .closing h2 { margin-left: auto; margin-right: auto; font-size: clamp(48px, 7.4vw, 104px); }
     @media (min-width: 641px) { .closing h2 { max-width: none; white-space: nowrap; font-size: clamp(40px, 6vw, 84px); } }
-    .closing .intro { margin-left: auto; margin-right: auto; }
+    .closing .intro { margin-left: auto; margin-right: auto; max-width: 700px; }
     .closing .reply { margin-top: 18px; color: var(--muted); font-size: 16px; }
     .closing .btn { margin-top: 36px; padding: 15px 32px; font-size: 17px; }
     .closing .mail { display: block; margin-top: 18px; font-size: 15px; color: var(--muted); }
@@ -596,7 +598,7 @@
       <div class="wrap">
         <p class="label">Integration</p>
         <h2 class="serif" id="scope-title">Keep your systems. <em>Add one plan.</em></h2>
-        <p class="intro">MetaFlow IQ works beside the systems you already run. They keep doing what they do best, and MetaFlow IQ adds the one thing they don't.</p>
+        <p class="intro">MetaFlow IQ works beside the systems you already run.<br class="wide" /> They keep doing what they do best, and MetaFlow IQ adds the one thing they don't.</p>
         <p class="how">Files in by upload or cloud folder. Signed-off orders out to your ERP. No integration project.</p>
         <div class="nots">
           <div class="not">
